@@ -1,4 +1,4 @@
-theme = 'Hugo-Profile'
+theme = 'hugo-profile'
 baseURL = 'https://valdirjunior.win/'
 languageCode = 'en-us'
 title = 'Valdir Junior | System Engineer'
