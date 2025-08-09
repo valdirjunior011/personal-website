@@ -1,44 +1,207 @@
-theme = 'hugo-profile'
-baseURL = 'https://valdirjunior.win/'
-languageCode = 'en-us'
-title = 'Valdir Junior | System Engineer'
+baseURL = "http://www.valdirjunior.win"
+title = "Valdir Junior"
+theme = "hugo-coder"
+languageCode = "en"
+defaultContentLanguage = "en"
+enableEmoji = true
+
+[pagination]
+pagerSize = 6
+
+[services]
+[services.disqus]
+# Enable Disqus comments
+# shortname = "yourdiscussshortname"
+
+[markup]
+[markup.highlight]
+noClasses = false
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
-  author = 'Valdir Junior'
-  description = 'System Engineer | DevOps | Cloud Computing | Open Source Enthusiast'
-  profilePicture = '/images/profile.jpg'
-  
-  [[params.social]]
-    name = 'GitHub'
-    url = 'https://www.github.com/valdirjunior011'
-    icon = 'fab fa-github'
+author = "Valdir Junior"
+# license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
+description = "Valdir Junior personal website"
+keywords = "devops, cloud, kubernetes, docker, linux, ansible, terraform, python, aws, azure"
+info = ["System Engineer", "Open Source Enthusiast"]
+avatarURL = "images/avatar.jpg"
+#gravatar = "john.doe@example.com"
+dateFormat = "January 2, 2006"
+since = 2019
+# Git Commit in Footer, uncomment the line below to enable it
+# commit = "https://github.com/valdirjunior011"
+# Right To Left, shift content direction for languages such as Arabic
+rtl = false
+# Specify light/dark colorscheme
+# Supported values:
+# "auto" (use preference set by browser)
+# "dark" (dark background, light foreground)
+# "light" (light background, dark foreground) (default)
+colorScheme = "auto"
+# Hide the toggle button, along with the associated vertical divider
+hideColorSchemeToggle = false
+# Series see also post count
+maxSeeAlsoItems = 5
+# Custom CSS
+customCSS = []
+# Custom SCSS, file path is relative to Hugo's asset folder (default: {your project root}/assets)
+customSCSS = []
 
-  [[params.social]]
-    name = 'LinkedIn'
-    url = 'https://www.linkedin.com/in/valdirjunior011'
-    icon = 'fab fa-linkedin'
+# Custom JS
+customJS = []
 
-  [[params.social]]
-    name = 'Email'
-    url = 'mailto:valdirjunior011@hotmail.com'
-    icon = 'fas fa-envelope'
+# Custom remote JS files
+customRemoteJS = []
 
-  [[menu.main]]
-    name = 'Home'
-    url = '/'
-    weight = 10
+# If you want to use fathom(https://usefathom.com) for analytics, add this section
+# [params.fathomAnalytics]
+# siteID = "ABCDE"
+# serverURL = "analytics.example.com" # Default value is cdn.usefathom.com, overwrite this if you are self-hosting
 
-  [[menu.main]]
-    name = 'About Me'
-    url = '/about/'
-    weight = 20
+# If you want to use plausible(https://plausible.io) for analytics, add this section
+# [params.plausibleAnalytics]
+# domain = "example.com"
+# serverURL = "analytics.example.com" # Default value is plausible.io, overwrite this if you are self-hosting or using a custom domain
+# outboundLinksTracking = true
+# fileDownloadsTracking = true
 
-  [[menu.main]]
-    name = 'Blog'
-    url = '/blog/'
-    weight = 30
+# If you want to use goatcounter(https://goatcounter.com) for analytics, add this section
+# [params.goatCounter]
+# code = "code"
 
-  [[menu.main]]
-    name = 'Curriculum'
-    url = '/Valdir Junior.pdf'
-    weight = 40
+# If you want to use Cloudflare Web Analytics(https://cloudflare.com) for analytics, add this section
+# [params.cloudflare]
+# token = "token"
+
+# If you want to use Matomo(https://matomo.org) for analytics, add this section
+# [params.matomo]
+# siteID = "ABCDE" # Default value is "1", overwrite this if you are cloud-hosting
+# serverURL = "analytics.example.com" # For cloud-hosting, use provided URL, e.g. example.matomo.cloud
+
+# If you want to use Google Tag Manager(https://analytics.google.com/) for analytics, add this section
+# [params.googleTagManager]
+# id = "gid"
+
+# If you want to use Yandex Metrika(https://metrika.yandex.ru) for analytics, add this section
+# [params.yandexMetrika]
+# id = "gid"
+
+# If you want to use Application Insights(https://azure.com/) for analytics, add this section
+# [params.applicationInsights]
+# connectionString = "connectionString"
+
+# If you want to use microanalytics.io for analytics, add this section
+# [params.microAnalytics]
+# id = "ABCDE"
+# dnt = "false" # respect DNT tracker, "true" by default
+
+# If you want to use Pirsch(https://pirsch.io) for analytics, add this section
+# [params.pirsch]
+# code = "ABCDE"
+
+# If you want to use Umami(https://umami.is) for analytics, add this section
+# [params.umami]
+# siteID = "ABCDE"
+# scriptURL = "analytics.REGION.umami.is/SCRIPTNAME.js"
+
+# If you want to use One Dollars Stats(https://onedollarstats.com/analytics) for analytics, add this section
+# [params.onedollarstats]
+# id = "data-site-id"
+
+# If you want to implement a Content-Security-Policy, add this section
+# [params.csp]
+# childsrc = ["'self'"]
+# fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
+# formaction = ["'self'"]
+# framesrc = ["'self'", "https://www.youtube.com"]
+# imgsrc = ["'self'"]
+# objectsrc = ["'none'"]
+# stylesrc = [
+#   "'self'",
+#   "'unsafe-inline'",
+#   "https://fonts.googleapis.com/",
+#   "https://cdn.jsdelivr.net/",
+# ]
+# scriptsrc = [
+#   "'self'",
+#   "'unsafe-inline'",
+#   "https://www.google-analytics.com",
+#   "https://cdn.jsdelivr.net/",
+# ]
+# prefetchsrc = ["'self'"]
+# # connect-src directive – defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource
+# connectsrc = ["'self'", "https://www.google-analytics.com"]
+
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+[[params.social]]
+name = "Github"
+icon = "fa-brands fa-github fa-2x"
+weight = 1
+url = "https://github.com/valdirjunior011/"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "fa-brands fa-linkedin fa-2x"
+weight = 2
+url = "https://www.linkedin.com/in/valdirjunior011/"
+
+[languages.en]
+languageName = ":us:"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
+
+[[languages.en.menu.main]]
+# name = "Blog"
+weight = 2
+url = "posts/"
+
+[[languages.en.menu.main]]
+# name = "Projects"
+weight = 3
+url = "projects/"
+
+[[languages.en.menu.main]]
+name = "Curriculum"
+weight = 4
+url = "/valdir-junior.pdf"
+
+[languages.pt-br]
+languageName = ":brazil:"
+title = "Valdir Junior"
+
+[languages.pt-br.params]
+author = "Valdir Junior"
+info = ["Engenheiro de Sistemas", "Entusiasta de Open Source"]
+description = "Website pessoal do Valdir Junior"
+keywords = "devops, nuvem, kubernetes, docker, linux, ansible, terraform, python, aws, azure"
+
+[[languages.pt-br.menu.main]]
+name = "Sobre"
+weight = 1
+url = "about/"
+
+[[languages.pt-br.menu.main]]
+# name = "Blog"
+weight = 2
+url = "posts/"
+
+[[languages.pt-br.menu.main]]
+# name = "Projetos"
+weight = 3
+url = "projects/"
+
+[[languages.pt-br.menu.main]]
+name = "Currículo"
+weight = 4
+url = "/valdir-junior.pdf"

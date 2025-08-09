@@ -1,0 +1,126 @@
+# ------------------------------------------------
+# ESSENTIALS
+# ------------------------------------------------
+baseURL = "https://www.valdirjunior.win/"
+languageCode = "en-us"
+title = "Valdir Junior | System Engineer"
+theme = "LoveIt"
+
+
+# ------------------------------------------------
+# MAIN PARAMETERS
+# ------------------------------------------------
+[params]
+  author = "Valdir Junior"
+  description = "System Engineer | DevOps | Cloud Computing | Open Source Enthusiast"
+  profilePicture = "/images/profile.jpg"
+  customCSS = ["css/custom.css"]
+
+
+# ------------------------------------------------
+# HOMEPAGE SECTIONS
+# ------------------------------------------------
+
+# --- HERO SECTION ---
+[params.hero]
+  enable = true
+  title = "Welcome to My Website 👋 \n" 
+  subtitle ='''
+    Hi, Junior Here.\n
+    System Engineer passionate about Linux, 
+    Cloud Automation & DevOps.
+    I love building scalable systems and
+    automating processes to improve efficiency.
+    '''
+  content = "This is my space to share projects, notes, and my journey in IT."
+  image = "/images/profile.jpg"
+
+  [params.hero.button]
+    enable = true
+    name = "About Me"
+    url = "#about"
+
+  # Social Icons for the Hero Section
+  [[params.hero.fontAwesomeIcons]]
+    name = "GitHub"
+    url = "https://www.github.com/valdirjunior011"
+    icon = "fab fa-github"
+  [[params.hero.fontAwesomeIcons]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/valdirjunior011"
+    icon = "fab fa-linkedin"
+  [[params.hero.fontAwesomeIcons]]
+    name = "Email"
+    url = "mailto:valdirjunior011@hotmail.com"
+    icon = "fas fa-envelope"
+
+# --- ABOUT SECTION ---
+[params.about]
+  enable = true
+  title = "About Me"
+  content = "Hello! I'm Valdir, a System Engineer with a deep passion for Linux, cloud infrastructure, and automating everything I can. I thrive on solving complex problems and building reliable, scalable systems."
+
+# --- EXPERIENCE SECTION ---
+[params.experience]
+  enable = true
+  title = "Work Experience"
+
+  [[params.experience.jobs]]
+    name = "Senior System Engineer"
+    company = "Global Tech Inc."
+    period = "2022 - Present"
+    description = """
+    - Managed a hybrid cloud environment using AWS and on-premise servers.
+    - Automated server provisioning and configuration management with Ansible and Terraform.
+    - Implemented CI/CD pipelines using GitHub Actions to improve deployment frequency.
+    """
+  [[params.experience.jobs]]
+    name = "System Administrator"
+    company = "Local Solutions LLC"
+    period = "2019 - 2022"
+    description = """
+    - Maintained Linux and Windows server infrastructure.
+    - Handled network security, backups, and disaster recovery planning.
+    - Provided technical support and troubleshooting for system issues.
+    """
+# --- PROJECTS SECTION ---
+# Add your projects here following the theme's documentation
+[params.projects]
+  enable = true
+  title = "My Projects"
+  # You will need to add [[params.projects.row]] sections here
+
+# --- CONTACT SECTION ---
+# Add your contact details here
+[params.contact]
+  enable = true
+  title = "Get In Touch"
+  # You will need to add your email, phone, etc. here
+
+# ------------------------------------------------
+# NAVIGATION MENU
+# ------------------------------------------------
+[[menu.main]]
+  name = "Home"
+  url = "#hero"
+  weight = 10
+[[menu.main]]
+  name = "About"
+  url = "#about"
+  weight = 20
+[[menu.main]]
+  name = "Experience"
+  url = "#experience"
+  weight = 30
+[[menu.main]]
+  name = "Projects"
+  url = "#projects"
+  weight = 40
+[[menu.main]]
+  name = "Contact"
+  url = "#contact"
+  weight = 50
+[[menu.main]]
+  name = "Curriculum"
+  url = "/valdir-junior.pdf"
+  weight = 60

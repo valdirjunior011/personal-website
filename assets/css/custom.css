@@ -1,0 +1,22 @@
+.hero-section {
+  position: relative; /* Necessary for positioning the overlay */
+  color: white; /* Make sure the text on top is white */
+}
+
+/* Create the dark overlay */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 1; /* Place the overlay above the image but below the text */
+}
+
+/* Make sure the text content is on top of the overlay */
+.hero-section .hero-content {
+  position: relative;
+  z-index: 2;
+}

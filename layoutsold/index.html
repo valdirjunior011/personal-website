@@ -1,0 +1,16 @@
+{{ define "main" }} {{/* This part calls the Hero section from your hugo.toml */}} {{- partial
+"sections/hero/index.html" . -}} {{/* This new part renders the content from content/_index.md */}}
+{{ if .Content }}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <div class="content">
+        <pre>{{ .Content }}</pre>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }} {{/* These are the other sections from your theme's original homepage */}} {{- partial
+"sections/about.html" . -}} {{- partial "sections/experience.html" . -}} {{- partial
+"sections/education.html" . -}} {{- partial "sections/projects.html" . -}} {{- partial
+"sections/achievements.html" . -}} {{- partial "sections/contact.html" . -}} {{ end }}
