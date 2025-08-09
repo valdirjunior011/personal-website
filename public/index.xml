@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Valdir Junior | System Engineer</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Valdir Junior | System Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/profile.jpg&#34; alt=&#34;My Profile Picture&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hello! I&amp;rsquo;m Valdir Junior, a &lt;strong&gt;System Administrator&lt;/strong&gt; with a passion for automation and cloud&#xA;infrastructure. &lt;br&gt;&#xA;I have experience with both &lt;em&gt;Linux and Windows&lt;/em&gt; environments.&lt;/p&gt;&#xA;&lt;p&gt;Here are some of my core skills:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Cloud Platforms (AWS, Azure)&lt;/li&gt;&#xA;&lt;li&gt;Scripting (Bash, PowerShell)&lt;/li&gt;&#xA;&lt;li&gt;Network Configuration&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;You can find more of my work on &lt;a href=&#34;https://github.com/valdirjunior011&#34;&gt;my GitHub profile&lt;/a&gt;. &lt;br&gt;&#xA;You can also connect with me on &lt;a href=&#34;https://www.linkedin.com/in/valdirjunior011&#34;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

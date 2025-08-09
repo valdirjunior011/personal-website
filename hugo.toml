@@ -1,0 +1,44 @@
+theme = 'Hugo-Profile'
+baseURL = 'https://valdirjunior.win/'
+languageCode = 'en-us'
+title = 'Valdir Junior | System Engineer'
+
+[params]
+  author = 'Valdir Junior'
+  description = 'System Engineer | DevOps | Cloud Computing | Open Source Enthusiast'
+  profilePicture = '/images/profile.jpg'
+  
+  [[params.social]]
+    name = 'GitHub'
+    url = 'https://www.github.com/valdirjunior011'
+    icon = 'fab fa-github'
+
+  [[params.social]]
+    name = 'LinkedIn'
+    url = 'https://www.linkedin.com/in/valdirjunior011'
+    icon = 'fab fa-linkedin'
+
+  [[params.social]]
+    name = 'Email'
+    url = 'mailto:valdirjunior011@hotmail.com'
+    icon = 'fas fa-envelope'
+
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+
+  [[menu.main]]
+    name = 'About Me'
+    url = '/about/'
+    weight = 20
+
+  [[menu.main]]
+    name = 'Blog'
+    url = '/blog/'
+    weight = 30
+
+  [[menu.main]]
+    name = 'Curriculum'
+    url = '/curriculum.pdf'
+    weight = 40
