@@ -40,5 +40,5 @@ title = 'Valdir Junior | System Engineer'
 
   [[menu.main]]
     name = 'Curriculum'
-    url = '/curriculum.pdf'
+    url = '/Valdir Junior.pdf'
     weight = 40
