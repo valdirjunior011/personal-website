@@ -120,7 +120,7 @@ weight = 2
 url = "posts/"
 
 [[languages.en.menu.main]]
-# name = "Projects"
+name = "Experience"
 weight = 3
 url = "projects/"
 
@@ -150,7 +150,7 @@ weight = 2
 url = "posts/"
 
 [[languages.pt-br.menu.main]]
-# name = "Projetos"
+name = "Experiência"
 weight = 3
 url = "projects/"
 
