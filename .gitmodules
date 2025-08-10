@@ -1,3 +1,4 @@
 [submodule "themes/hugo-coder"]
 	path = themes/hugo-coder
-	url = git@github.com-valdirjunior011:valdirjunior011/hugo-coder.git
+	; url = git@github.com-valdirjunior011:valdirjunior011/hugo-coder.git
+  url = https://github.com/valdirjunior011/hugo-coder.git
