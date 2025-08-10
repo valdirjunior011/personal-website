@@ -6,70 +6,28 @@
     <description>Recent content in Posts on Valdir Junior</description>
     <generator>Hugo</generator>
     <language>pt-br</language>
-    <lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/pt-br/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Guia de Sintaxe Markdown</title>
-      <link>http://localhost:1313/pt-br/posts/markdown-syntax/</link>
-      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/markdown-syntax/</guid>
-      <description>&lt;p&gt;Esse artigo é um exemplo básico para mostrar a sintaxe Markdown que é usada nos arquivos de conteúdo do Hugo. Ele também mostrar como cada elemento básico HTML é estilizado com CSS com os temas do Hugo.&lt;/p&gt;</description>
+      <title>Docker Compose: Orquestrando Aplicações com Facilidade</title>
+      <link>http://localhost:1313/pt-br/posts/docker-compose/</link>
+      <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt-br/posts/docker-compose/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQHiC2c06YoG-w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1695363689934?e=1758758400&amp;amp;v=beta&amp;amp;t=0KQjIAC6Ne0CooOM3hdPZef5LxIA8Izgw1Q4PibU6fw&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;orquestrando-aplicações-com-facilidade&#34;&gt;&#xA;  Orquestrando Aplicações com Facilidade&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#orquestrando-aplica%c3%a7%c3%b5es-com-facilidade&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;o-que-é-o-docker-compose&#34;&gt;&#xA;  O que é o Docker Compose?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#o-que-%c3%a9-o-docker-compose&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;O Docker Compose é uma ferramenta que permite definir e gerenciar aplicativos multicontêineres&#xA;usando um único arquivo YAML. Com ele, você pode especificar a configuração, os serviços e as redes&#xA;necessários para seu aplicativo, tornando a orquestração de contêineres uma tarefa mais simples.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Conteúdo Rico</title>
-      <link>http://localhost:1313/pt-br/posts/rich-content/</link>
-      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/rich-content/</guid>
-      <description>&lt;p&gt;O Hugo vem com vários &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Shortcodes Internos&lt;/a&gt; para conteúdo rico, assim como uma &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Configuração de Privacidade&lt;/a&gt; e uma gama de Shortcodes simples que permitem embutir versões estáticas e sem JS de várias de redes sociais.&lt;/p&gt;&#xA;&lt;h2 id=&#34;&#34;&gt;&#xA;  &#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;</description>
+      <title>Distroless no Docker: Segurança e Monitorização</title>
+      <link>http://localhost:1313/pt-br/posts/distroless-no-docker/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt-br/posts/distroless-no-docker/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQGwhxdbDGnDjA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696490979793?e=1758758400&amp;amp;v=beta&amp;amp;t=ImtknOIDkgq-8dIyXQIsdUdtaiwKKM6Cty88-4Ina9M&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;simplificando-a-eficiência-das-imagens-de-contêiner&#34;&gt;&#xA;  Simplificando a Eficiência das Imagens de Contêiner&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#simplificando-a-efici%c3%aancia-das-imagens-de-cont%c3%aainer&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;distroless-o-que-são-e-por-que-são-importantes&#34;&gt;&#xA;  Distroless: O que são e por que são importantes?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#distroless-o-que-s%c3%a3o-e-por-que-s%c3%a3o-importantes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;As imagens distroless são uma classe especial de imagens Docker que se destacam por sua abordagem&#xA;minimalista.&lt;/p&gt;&#xA;&lt;p&gt;Ao contrário das imagens tradicionais, que incluem um sistema operacional completo, as imagens&#xA;distroless contêm apenas o necessário para executar uma aplicação. Isso significa que não há pacotes&#xA;ou utilitários desnecessários, o que reduz significativamente a superfície de ataque do containers.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Mais Conteúdo Rico</title>
-      <link>http://localhost:1313/pt-br/posts/more-rich-content/</link>
-      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/more-rich-content/</guid>
-      <description>&lt;p&gt;O Hugo Coder proporciona alguns Shortcodes Customizados.&lt;/p&gt;&#xA;&lt;h2 id=&#34;&#34;&gt;&#xA;  &#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Configuração de Equações Matemáticas</title>
-      <link>http://localhost:1313/pt-br/posts/math-typesetting/</link>
-      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/math-typesetting/</guid>
-      <description>&lt;p&gt;Em um projeto Hugo as Notações Matemáticas podem ser usadas com a ajuda de bibliotecas JavaScript de terceiros.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>HTML and CSS only tabs</title>
-      <link>http://localhost:1313/pt-br/posts/html-and-css-only-tabs/</link>
-      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/html-and-css-only-tabs/</guid>
-      <description>&lt;h2 id=&#34;shortcodes&#34;&gt;&#xA;  Shortcodes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#shortcodes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;O seguinte conteúdo:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;tabgroup&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;tab&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Hello World!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tab&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;tab&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Goodbye&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Goodbye Everybody!&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tab&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tabgroup&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Irá gerar:&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;tabs tabs-left&#34;&gt;&#xA;  &#xA;&#xA;&#xA;&#xA;&#xA;&lt;style&gt;&#xA;  .tabs input#tab-0-0:checked ~ .tab-content-0-0 {&#xA;    display: block;&#xA;  }&#xA;&lt;/style&gt;&#xA;&#xA;&lt;input type=&#34;radio&#34; class=&#34;tab-input&#34; name=&#34;tab-select-0&#34; id=&#34;tab-0-0&#34; checked/&gt;&#xA;&lt;label for=&#34;tab-0-0&#34; class=&#34;tab-label&#34;&gt;Hello&lt;/label&gt;&#xA;&lt;div class=&#34;tab-content tab-content-0-0&#34;&gt;&#xA;  Hello World!&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;style&gt;&#xA;  .tabs input#tab-0-1:checked ~ .tab-content-0-1 {&#xA;    display: block;&#xA;  }&#xA;&lt;/style&gt;&#xA;&#xA;&lt;input type=&#34;radio&#34; class=&#34;tab-input&#34; name=&#34;tab-select-0&#34; id=&#34;tab-0-1&#34; /&gt;&#xA;&lt;label for=&#34;tab-0-1&#34; class=&#34;tab-label&#34;&gt;Goodbye&lt;/label&gt;&#xA;&lt;div class=&#34;tab-content tab-content-0-1&#34;&gt;&#xA;  Goodbye Everybody!&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&#xA;&lt;h2 id=&#34;alinhamento-à-direita&#34;&gt;&#xA;  Alinhamento à direita&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#alinhamento-%c3%a0-direita&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Você também pode alinhas as tabs à direita:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mermaid JS support</title>
-      <link>http://localhost:1313/pt-br/posts/mermaid-support/</link>
-      <pubDate>Sat, 08 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/mermaid-support/</guid>
-      <description>&lt;p&gt;Se quiser usar o &lt;a href=&#34;https://mermaid-js.github.io/mermaid/#/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mermaid-JS&lt;/a&gt; em sua página.&#xA;Use o &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#readout&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcode&lt;/a&gt; &lt;code&gt;mermaid&lt;/code&gt; em seus conteúdos Markdown.&lt;/p&gt;&#xA;&lt;div class=&#34;mermaid&#34;&gt;&#xA;flowchart LR&#xA;&#xA;    A --&gt; B&#xA;&#xA;    B --&gt; C&#xA;&#xA;    C --&gt; D&#xA;&#xA;    D --&gt; B&#xA;&#xA;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;mermaid&#34;&gt;&#xA;sequenceDiagram&#xA;participant Alice&#xA;participant Bob&#xA;Alice-&gt;&gt;Bob: Hi Bob&#xA;Bob-&gt;&gt;Alice: Hi Alice&#xA;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Entro mais exemplos na página do &lt;a href=&#34;https://mermaid-js.github.io/mermaid/#/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mermaid-JS&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Suporte a Emojis</title>
-      <link>http://localhost:1313/pt-br/posts/emoji-support/</link>
-      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/emoji-support/</guid>
-      <description>&lt;p&gt;Emojis podem ser ativados em um projeto Hugo de diversar formas.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Página Externa: Wiki Hugo Coder</title>
-      <link>http://localhost:1313/pt-br/posts/hugo-coder-wiki/</link>
-      <pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/hugo-coder-wiki/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Texto de Exemplo</title>
-      <link>http://localhost:1313/pt-br/posts/placeholder-text/</link>
-      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/pt-br/posts/placeholder-text/</guid>
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
+      <title>Como funciona o Isolamento de containers utilizado pelo Docker</title>
+      <link>http://localhost:1313/pt-br/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt-br/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQHVJusYLjguHA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693822466067?e=1758758400&amp;amp;v=beta&amp;amp;t=bPRZ8xzT7u3DhwjV3quxfZMEjyDlriIElSfE-EKA2h0&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;O Docker revolucionou a forma como as aplicações sao implantadas e gerenciadas, utilizando o&#xA;conceito de contêineres. Um dos pilares fundamentais dessa recurso é o isolamento, que possibilita a&#xA;execução de várias aplicações em um único host sem que elas interfiram umas nas outras.&lt;/p&gt;&#xA;&lt;p&gt;Esse isolamento é alcançado por meio de recursos essenciais do kernel Linux, como Control Groups&#xA;(CGroups), Namespaces e o comando Unshare. Neste artigo, vamos ter uma compreensão desses recursos e&#xA;como eles são empregados para criar ambientes isolados no Docker.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

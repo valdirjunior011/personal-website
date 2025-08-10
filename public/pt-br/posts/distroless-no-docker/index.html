@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Distroless no Docker: Segurança e Monitorização · Valdir Junior
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Valdir Junior">
+<meta name="description" content="Aprenda como usar imagens distroless no Docker para aumentar a segurança e monitorização de contêineres com healthchecks e reinicialização automática.">
+<meta name="keywords" content="devops, nuvem, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Distroless no Docker: Segurança e Monitorização">
+  <meta name="twitter:description" content="Aprenda como usar imagens distroless no Docker para aumentar a segurança e monitorização de contêineres com healthchecks e reinicialização automática.">
+
+<meta property="og:url" content="http://localhost:1313/pt-br/posts/distroless-no-docker/">
+  <meta property="og:site_name" content="Valdir Junior">
+  <meta property="og:title" content="Distroless no Docker: Segurança e Monitorização">
+  <meta property="og:description" content="Aprenda como usar imagens distroless no Docker para aumentar a segurança e monitorização de contêineres com healthchecks e reinicialização automática.">
+  <meta property="og:locale" content="pt_br">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Distroless">
+    <meta property="article:tag" content="Healthchecks">
+    <meta property="article:tag" content="Segurança">
+    <meta property="article:tag" content="Monitorização">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/pt-br/posts/distroless-no-docker/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/pt-br/">
+      Valdir Junior
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/about/">Sobre</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/posts/">Publicações</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/projects/"></a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/valdir-junior.pdf">Currículo</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">🇺🇸</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/pt-br/posts/distroless-no-docker/">
+              Distroless no Docker: Segurança e Monitorização
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-02-02T00:00:00Z">
+                fevereiro 2, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3 minutos de leitura
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/pt-br/categories/devops/">DevOps</a>
+      <span class="separator">•</span>
+    <a href="/pt-br/categories/containers/">Containers</a>
+      <span class="separator">•</span>
+    <a href="/pt-br/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/pt-br/tags/docker/">Docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/distroless/">Distroless</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/healthchecks/">Healthchecks</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/seguran%C3%A7a/">Segurança</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/monitoriza%C3%A7%C3%A3o/">Monitorização</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQGwhxdbDGnDjA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696490979793?e=1758758400&amp;v=beta&amp;t=ImtknOIDkgq-8dIyXQIsdUdtaiwKKM6Cty88-4Ina9M" alt=""></p>
+<h2 id="simplificando-a-eficiência-das-imagens-de-contêiner">
+  Simplificando a Eficiência das Imagens de Contêiner
+  <a class="heading-link" href="#simplificando-a-efici%c3%aancia-das-imagens-de-cont%c3%aainer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<h3 id="distroless-o-que-são-e-por-que-são-importantes">
+  Distroless: O que são e por que são importantes?
+  <a class="heading-link" href="#distroless-o-que-s%c3%a3o-e-por-que-s%c3%a3o-importantes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>As imagens distroless são uma classe especial de imagens Docker que se destacam por sua abordagem
+minimalista.</p>
+<p>Ao contrário das imagens tradicionais, que incluem um sistema operacional completo, as imagens
+distroless contêm apenas o necessário para executar uma aplicação. Isso significa que não há pacotes
+ou utilitários desnecessários, o que reduz significativamente a superfície de ataque do containers.</p>
+<p>A importância das imagens distroless é dupla. Primeiro, elas diminuem a quantidade de software
+potencialmente vulnerável presente no contêiner. Em segundo lugar, tornam os contêineres mais leves
+e rápidos de implantar, economizando recursos de hardware e melhorando a escalabilidade.</p>
+<p>Para verificar as camadas de uma imagem distroless e garantir sua origem, você pode usar a
+ferramenta &ldquo;dive&rdquo;.</p>
+<p><a href="https://gochronicles.com/dive/"  class="external-link" target="_blank" rel="noopener">Dive - Analyze Docker Images (</a><a href="http://gochronicles.com/"  class="external-link" target="_blank" rel="noopener">gochronicles.com</a><a href="https://gochronicles.com/dive/"  class="external-link" target="_blank" rel="noopener">)</a></p>
+<p>Ela permite que você inspecione as camadas de uma imagem e verifique se não há conteúdo não
+desejado.</p>
+<p>Por exemplo:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">dive gcr.io/distroless/base-debian10
+</span></span></code></pre></div><hr>
+<h3 id="healthchecks-mantendo-a-saúde-do-contêiner">
+  Healthchecks: Mantendo a Saúde do Contêiner
+  <a class="heading-link" href="#healthchecks-mantendo-a-sa%c3%bade-do-cont%c3%aainer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Agora que sabemos como tornar nossos contêineres mais seguros com imagens distroless, é hora de
+adicionar uma camada adicional de robustez: healthchecks. Um healthcheck é uma função que verifica
+se o contêiner está em um estado saudável e funcional. Isso é fundamental para a monitorização e
+garantia da disponibilidade contínua de sua aplicação.</p>
+<p>Os healthchecks podem ser implementados diretamente no Dockerfile. Vamos dar uma olhada em como
+fazer isso:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># Use uma imagem distroless como base</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> gcr.io/distroless/base-debian10</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copie os arquivos da sua aplicação para o contêiner</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> minha_app /minha_app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Defina a porta em que sua aplicação está ouvindo</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8080</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Adicione um healthcheck</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">HEALTHCHECK</span> --interval<span class="o">=</span>5s --timeout<span class="o">=</span>3s <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="k">CMD</span> curl -f http://localhost:8080/health <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Comando para iniciar sua aplicação</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/minha_app&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><p>Neste exemplo, usamos o comando <em>HEALTHCHECK</em> para definir uma verificação de saúde que executa o
+comando curl para verificar se a rota /health de nossa aplicação está respondendo corretamente. Se a
+verificação de saúde falhar, o contêiner será considerado em um estado não saudável e pode ser
+reiniciado automaticamente.</p>
+<hr>
+<h3 id="reinicialização-automática-com-healthchecks">
+  Reinicialização Automática com Healthchecks
+  <a class="heading-link" href="#reinicializa%c3%a7%c3%a3o-autom%c3%a1tica-com-healthchecks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>A reinicialização automática é um dos benefícios dos healthchecks. Quando você utiliza
+orquestradores de contêineres, como Kubernetes, Docker Compose ou Swarm, eles podem monitorar o
+status dos healthchecks e tomar medidas automáticas quando um contêiner se torna não saudável. Por
+exemplo, no Kubernetes, você pode especificar a política de reinicialização para seus pods:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">meu-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">meu-app-container</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minha-imagem:tag</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/health</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span></code></pre></div><p>Neste exemplo, o Kubernetes monitora a rota /health do contêiner e reinicializa automaticamente o
+pod se a verificação de saúde falhar. Isso garante que sua aplicação esteja sempre em execução e
+saudável.</p>
+<p>Refer. Documentação Kubernetes.</p>
+<p><img src="https://media.licdn.com/dms/image/v2/D4E12AQEya34_r8_tAQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1696491718381?e=1758758400&amp;v=beta&amp;t=K4LJm_aPtT5kovSuXgS9yAZuYR1H-UURoVtD46GcQd0" alt="Article content"></p>
+<p>Configure Liveness, Readiness and Startup Probes | Kubernetes</p>
+<hr>
+<h3 id="conclusão">
+  Conclusão
+  <a class="heading-link" href="#conclus%c3%a3o">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>A segurança e a monitorização são elementos cruciais para o sucesso de contêineres em ambientes de
+produção. A utilização de imagens distroless, a implementação de healthchecks e a personalização
+adequada de seu Dockerfile ou yaml no Kubernetes são práticas recomendadas para alcançar esses
+objetivos. Ao minimizar a superfície de ataque, manter o controle sobre a saúde de seus contêineres
+e aproveitar as vantagens da reinicialização automática, você está dando passos importantes em
+direção a uma arquitetura de contêiner mais segura e confiável. Lembre-se sempre de adaptar essas
+práticas às necessidades específicas de sua aplicação e ambiente.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2025
+     Valdir Junior 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -2,49 +2,51 @@
 
 # Sobre Mim
 
-Olá! Meu nome é **Valdir Junior**, sou SysAdmin com uma profunda paixão por Linux, automação, e
-tecnologias de nuvem. Adoro resolver problemas complexos, otimizar sistemas e fazer a infraestrutura
-dançar ao meu comando.
+Olá! Sou o **Valdir Junior**, **SysAdmin** apaixonado por Linux, automação e tecnologias em nuvem.
+Adoro resolver problemas complexos, otimizar sistemas e fazer a infraestrutura funcionar de forma
+fluida e eficiente.
 
 ---
 
-Originalmente do Brasil 🇧🇷, agora morando na Alemanha 🇩🇪, tenho mais de 10 anos de experiência em
-TI, atuando em diversas áreas como administração de sistemas, engenharia de nuvem e DevOps. <br>
-Minha jornada começou com uma paixão por computadores que evoluiu para um amor por automação e
-tecnologias de nuvem.<br> Atualmente, trabalho como **IT Services Manager**/**SysAdmin**, ajudando a
-otimizar e gerenciar infraestruturas de TI, garantindo que tudo funcione perfeitamente e com
-eficiência.
+Sou brasileiro 🇧🇷 e atualmente moro na Alemanha 🇩🇪. Tenho mais de 10 anos de experiência em TI,
+atuando como **SysAdmin**, **Cloud Engineer** e **DevOps Engineer**. Ao longo da minha trajetória,
+enfrentei diversos desafios e oportunidades, sempre com o objetivo de criar soluções eficientes,
+escaláveis e confiáveis. Atualmente trabalho como **IT Services Manager**/**SysAdmin**, ajudando a
+otimizar e gerenciar serviços de TI para garantir operações estáveis.
 
-Areas de especialização incluem:
+Minhas principais áreas de especialização são:
 
-- Administração de sistemas
-- Engenharia de nuvem
-- DevOps e práticas de automação
-- Linux & Windows systems
-- Cloud computing (AWS, Azure)
-- infraestrutura como Codigo (IaC)
+- Sistemas Linux & Windows
+- Computação em nuvem (AWS, Azure)
+- Containerização (Docker, Kubernetes)
+- Infraestrutura como Código
 - Monitoramento & automação
+- Práticas DevOps
+- Scripting (Bash, Python)
+- Redes & segurança
+- Virtualização (VMware, Hyper-V)
 
 ---
 
 ## Minha Jornada 🚀
 
-- Started as a **Linux enthusiast** in my teens
-- Worked my way up from **SysAdmin** to **Cloud Engineer**
-- Currently focused on **DevOps** and **Cloud Native** technologies
+- Comecei como **Técnico de Suporte** na adolescência
+- Evoluí para **SysAdmin** e depois **Engenheiro de Redes**
+- Hoje, foco em **DevOps** e tecnologias **Cloud Native**
 
 ---
 
-## My Goals 🎯
+## Meus Objectivos 🎯
 
-- Master **Kubernetes** and **Cloud Native** tools
+- Dominar **Kubernetes** e todo o ecossistema **Cloud Native**
 
 ---
 
-## Fun Facts 😄
+## Curiosidades 😄
 
-- I can play violin 🎻
-- I enjoy **gaming** (race simulators & football games)i
-- I’m learning **guitar** (R&B & soul vibes)
-- Coffee is my main fuel ☕
-- I love tinkering with **homelabs** & small form factor PCs
+- Entusiasta de Linux desde sempre 🐧
+- Toco violino 🎻
+- Curto games (simuladores de corrida & jogos de futebol) 🎮
+- Aprendendo guitarra (estilo R&B e soul) 🎸
+- Café é meu combustível ☕
+- Adoro montar homelabs e PCs de pequeno porte

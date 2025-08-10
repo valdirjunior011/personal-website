@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distroless on Valdir Junior</title>
+    <link>http://localhost:1313/tags/distroless/</link>
+    <description>Recent content in Distroless on Valdir Junior</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/distroless/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distroless no Docker: Segurança e Monitorização de Contêineres</title>
+      <link>http://localhost:1313/posts/distroless-no-docker/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/distroless-no-docker/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQGwhxdbDGnDjA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696490979793?e=1758758400&amp;amp;v=beta&amp;amp;t=ImtknOIDkgq-8dIyXQIsdUdtaiwKKM6Cty88-4Ina9M&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;simplificando-a-eficiência-das-imagens-de-contêiner&#34;&gt;&#xA;  Simplificando a Eficiência das Imagens de Contêiner&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#simplificando-a-efici%c3%aancia-das-imagens-de-cont%c3%aainer&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;distroless-o-que-são-e-por-que-são-importantes&#34;&gt;&#xA;  Distroless: O que são e por que são importantes?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#distroless-o-que-s%c3%a3o-e-por-que-s%c3%a3o-importantes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;As imagens distroless são uma classe especial de imagens Docker que se destacam por sua abordagem&#xA;minimalista.&lt;/p&gt;&#xA;&lt;p&gt;Ao contrário das imagens tradicionais, que incluem um sistema operacional completo, as imagens&#xA;distroless contêm apenas o necessário para executar uma aplicação. Isso significa que não há pacotes&#xA;ou utilitários desnecessários, o que reduz significativamente a superfície de ataque do containers.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

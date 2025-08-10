@@ -2,47 +2,52 @@
 
 # About Me
 
-Hey there! My name is **Valdir Junior**, and I’m a SysAdmin with a deep love for Linux, automation,
-<br>and cloud technologies. I thrive on solving complex problems, optimizing systems, and making
-<br> infrastructure dance to my commands.
+Hi there! I'm **Valdir Junior** a SysAdmin with a deep love for Linux, automation, <br>and cloud
+technologies. I love solving complex problems, fine-tuning systems, and making <br> infrastructure
+run like clockworke.
 
 ---
 
-Originally from Brazil 🇧🇷, now living in Germany 🇩🇪, I've more than 10 years in IT, acting in
-multiple roles such as SysAdmin, Cloud Engineer, and DevOps Engineer. My journey has taken me
-through various challenges and opportunities, and I’m passionate about leveraging technology to
-create efficient and scalable solutions. I'm currently working as **IT Services
-Manager**/**SysAdmin**, helping otimize and manage IT services ensuring smooth operations.
+Originally from Brazil 🇧🇷 and now based in Germany 🇩🇪, I bring over a decade of experience in IT,
+having worked in roles such as **SysAdmin**, **Cloud Engineer**, and **DevOps Engineer**. My career
+has taken me through diverse challenges, and I’m driven by the goal of building efficient, scalable,
+and reliable solutions. I’m currently working as **IT Services Manager**/**SysAdmin**, where I help
+optimize and manage IT services to keep operations smooth.
 
-specializing areas are:
+My key areas of expertise include:
 
-- Linux & Windows systems
+- Linux & Windows systems administration
 - Cloud computing (AWS, Azure)
 - Containerization (Docker, Kubernetes)
 - Infrastructure as Code
 - Monitoring & automation
 - DevOps practices
+- Scripting (Bash, Python)
+- Networking & security
+- Virtualization (VMware, Hyper-V)
 
 ---
 
 ## My Journey 🚀
 
-- Started as a **Linux enthusiast** in my teens
-- Worked my way up from **SysAdmin** to **Cloud Engineer**
-- Currently focused on **DevOps** and **Cloud Native** technologies
+- Started as a **Support Technician** in my teens
+- Grew into **SysAdmin** and later **Network Engineer** roles
+- Now focused on **DevOps** and **Cloud Native** technologies
 
 ---
 
 ## My Goals 🎯
 
-- Master **Kubernetes** and **Cloud Native** tools
+- Enhance my skills in **DevOps** world
+- Master **Kubernetes** and the entire **Cloud Native** ecosystem
 
 ---
 
 ## Fun Facts 😄
 
-- I can play violin 🎻
-- I enjoy **gaming** (race simulators & football games)i
-- I’m learning **guitar** (R&B & soul vibes)
-- Coffee is my main fuel ☕
-- I love tinkering with **homelabs** & small form factor PCs
+- Lifelong Linux enthusiast 🐧
+- Play the violin 🎻
+- Enjoy gaming (racing sims & football games) 🎮
+- Learning guitar (R&B & soul style) 🎸
+- Fueled by coffee ☕
+- Love experimenting with homelabs & small form factor PCs
