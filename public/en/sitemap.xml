@@ -93,6 +93,19 @@
                 href="http://localhost:1313/posts/docker-compose/"
                 />
   </url><url>
+    <loc>http://localhost:1313/posts/dominando-docker-volumes/</loc>
+    <lastmod>2024-03-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/dominando-docker-volumes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/dominando-docker-volumes/"
+                />
+  </url><url>
     <loc>http://localhost:1313/tags/docker-compose/</loc>
     <lastmod>2024-03-02T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -158,6 +171,126 @@
                 href="http://localhost:1313/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tags/volumes/</loc>
+    <lastmod>2024-03-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/volumes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/volumes/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/auto-restart/</loc>
+    <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/distroless/</loc>
+    <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/distroless/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/distroless/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/posts/distroless-no-docker/</loc>
+    <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/distroless-no-docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/distroless-no-docker/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/healthchecks/</loc>
+    <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/healthchecks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/healthchecks/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/cgroups/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/cgroups/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/cgroups/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/linux/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/linux/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/namespaces/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/namespaces/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/namespaces/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/unshare/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/tags/unshare/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/unshare/"
+                />
+  </url><url>
     <loc>http://localhost:1313/authors/</loc>
     <lastmod>2023-01-05T01:15:29+01:00</lastmod>
     <xhtml:link
@@ -196,15 +329,41 @@
                 href="http://localhost:1313/about/"
                 />
   </url><url>
-    <loc>http://localhost:1313/posts/dominando-docker-volumes/</loc>
-  </url><url>
-    <loc>http://localhost:1313/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/</loc>
-  </url><url>
     <loc>http://localhost:1313/posts/network-no-docker/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/network-no-docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/network-no-docker/"
+                />
   </url><url>
     <loc>http://localhost:1313/posts/otimizando-o-dockerfile-com-multi-stage-builds/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/otimizando-o-dockerfile-com-multi-stage-builds/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/otimizando-o-dockerfile-com-multi-stage-builds/"
+                />
   </url><url>
     <loc>http://localhost:1313/posts/troubleshooting-no-docker/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/troubleshooting-no-docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/troubleshooting-no-docker/"
+                />
   </url><url>
     <loc>http://localhost:1313/contact/</loc>
     <xhtml:link

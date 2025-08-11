@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/unshare/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Como funciona o Isolamento de containers utilizado pelo Docker</title>
+      <title>How Docker Uses Linux Kernel Features to Isolate Containers</title>
       <link>http://localhost:1313/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/</link>
       <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQHVJusYLjguHA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693822466067?e=1758758400&amp;amp;v=beta&amp;amp;t=bPRZ8xzT7u3DhwjV3quxfZMEjyDlriIElSfE-EKA2h0&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;O Docker revolucionou a forma como as aplicações sao implantadas e gerenciadas, utilizando o&#xA;conceito de contêineres. Um dos pilares fundamentais dessa recurso é o isolamento, que possibilita a&#xA;execução de várias aplicações em um único host sem que elas interfiram umas nas outras.&lt;/p&gt;&#xA;&lt;p&gt;Esse isolamento é alcançado por meio de recursos essenciais do kernel Linux, como Control Groups&#xA;(CGroups), Namespaces e o comando Unshare. Neste artigo, vamos ter uma compreensão desses recursos e&#xA;como eles são empregados para criar ambientes isolados no Docker.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQHVJusYLjguHA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693822466067?e=1758758400&amp;amp;v=beta&amp;amp;t=bPRZ8xzT7u3DhwjV3quxfZMEjyDlriIElSfE-EKA2h0&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Docker has revolutionized the way applications are deployed and managed by using the concept of&#xA;containers. One of the fundamental pillars of this feature is isolation, which enables multiple&#xA;applications to run on a single host without interfering with one another. This isolation is&#xA;achieved through essential Linux kernel features such as Control Groups (CGroups), Namespaces, and&#xA;the unshare command. In this article, we will gain an understanding of these features and how they&#xA;are used to create isolated environments in Docker.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

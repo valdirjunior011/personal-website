@@ -36,5 +36,61 @@
       <guid>http://localhost:1313/tags/docker-compose/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Volumes</title>
+      <link>http://localhost:1313/tags/volumes/</link>
+      <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/volumes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Auto-Restart</title>
+      <link>http://localhost:1313/tags/auto-restart/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/auto-restart/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distroless</title>
+      <link>http://localhost:1313/tags/distroless/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/distroless/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Healthchecks</title>
+      <link>http://localhost:1313/tags/healthchecks/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/healthchecks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CGroups</title>
+      <link>http://localhost:1313/tags/cgroups/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cgroups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Namespaces</title>
+      <link>http://localhost:1313/tags/namespaces/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/namespaces/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Unshare</title>
+      <link>http://localhost:1313/tags/unshare/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/unshare/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
