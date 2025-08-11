@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-  Distroless no Docker: Segurança e Monitorização de Contêineres · Valdir Junior
+  Docker Distroless: Healthchecks and Auto-Restart · Valdir Junior
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,19 +13,19 @@
 
 
 <meta name="author" content="Valdir Junior">
-<meta name="description" content="Aprenda como usar imagens distroless no Docker para aumentar a segurança e monitorização de contêineres com healthchecks e reinicialização automática.">
+<meta name="description" content="uncovering the power of Distroless images in Docker, focusing on security and monitoring with healthchecks and auto-restart capabilities.">
 <meta name="keywords" content="devops, cloud, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Distroless no Docker: Segurança e Monitorização de Contêineres">
-  <meta name="twitter:description" content="Aprenda como usar imagens distroless no Docker para aumentar a segurança e monitorização de contêineres com healthchecks e reinicialização automática.">
+  <meta name="twitter:title" content="Docker Distroless: Healthchecks and Auto-Restart">
+  <meta name="twitter:description" content="uncovering the power of Distroless images in Docker, focusing on security and monitoring with healthchecks and auto-restart capabilities.">
 
 <meta property="og:url" content="http://localhost:1313/posts/distroless-no-docker/">
   <meta property="og:site_name" content="Valdir Junior">
-  <meta property="og:title" content="Distroless no Docker: Segurança e Monitorização de Contêineres">
-  <meta property="og:description" content="Aprenda como usar imagens distroless no Docker para aumentar a segurança e monitorização de contêineres com healthchecks e reinicialização automática.">
+  <meta property="og:title" content="Docker Distroless: Healthchecks and Auto-Restart">
+  <meta property="og:description" content="uncovering the power of Distroless images in Docker, focusing on security and monitoring with healthchecks and auto-restart capabilities.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -34,8 +34,7 @@
     <meta property="article:tag" content="Docker">
     <meta property="article:tag" content="Distroless">
     <meta property="article:tag" content="Healthchecks">
-    <meta property="article:tag" content="Segurança">
-    <meta property="article:tag" content="Monitorização">
+    <meta property="article:tag" content="Auto-Restart">
 
 
 
@@ -129,7 +128,7 @@
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link " href="/projects/"></a>
+              <a class="navigation-link " href="/projects/">Experience</a>
             </li>
           
             <li class="navigation-item">
@@ -142,8 +141,6 @@
           
           
             
-          
-            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -151,7 +148,7 @@
                 
               
               <li class="navigation-item">
-                <a href="/pt-br/">🇧🇷</a>
+                <a href="/pt-br/posts/distroless-no-docker/">🇧🇷</a>
               </li>
             
           
@@ -170,7 +167,7 @@
         <div class="post-title">
           <h1 class="title">
             <a class="title-link" href="http://localhost:1313/posts/distroless-no-docker/">
-              Distroless no Docker: Segurança e Monitorização de Contêineres
+              Docker Distroless: Healthchecks and Auto-Restart
             </a>
           </h1>
         </div>
@@ -211,11 +208,7 @@
     </span>
       <span class="separator">•</span>
     <span class="tag">
-      <a href="/tags/seguran%C3%A7a/">Segurança</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="/tags/monitoriza%C3%A7%C3%A3o/">Monitorização</a>
+      <a href="/tags/auto-restart/">Auto-Restart</a>
     </span></div>
 
         </div>
@@ -224,87 +217,83 @@
       <div class="post-content">
         
         <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQGwhxdbDGnDjA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696490979793?e=1758758400&amp;v=beta&amp;t=ImtknOIDkgq-8dIyXQIsdUdtaiwKKM6Cty88-4Ina9M" alt=""></p>
-<h2 id="simplificando-a-eficiência-das-imagens-de-contêiner">
-  Simplificando a Eficiência das Imagens de Contêiner
-  <a class="heading-link" href="#simplificando-a-efici%c3%aancia-das-imagens-de-cont%c3%aainer">
+<h2 id="simplifying-container-image-efficiency">
+  Simplifying Container Image Efficiency
+  <a class="heading-link" href="#simplifying-container-image-efficiency">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<h3 id="distroless-o-que-são-e-por-que-são-importantes">
-  Distroless: O que são e por que são importantes?
-  <a class="heading-link" href="#distroless-o-que-s%c3%a3o-e-por-que-s%c3%a3o-importantes">
+<h3 id="distroless-what-they-are-and-why-they-matter">
+  Distroless: What They Are and Why They Matter
+  <a class="heading-link" href="#distroless-what-they-are-and-why-they-matter">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>As imagens distroless são uma classe especial de imagens Docker que se destacam por sua abordagem
-minimalista.</p>
-<p>Ao contrário das imagens tradicionais, que incluem um sistema operacional completo, as imagens
-distroless contêm apenas o necessário para executar uma aplicação. Isso significa que não há pacotes
-ou utilitários desnecessários, o que reduz significativamente a superfície de ataque do containers.</p>
-<p>A importância das imagens distroless é dupla. Primeiro, elas diminuem a quantidade de software
-potencialmente vulnerável presente no contêiner. Em segundo lugar, tornam os contêineres mais leves
-e rápidos de implantar, economizando recursos de hardware e melhorando a escalabilidade.</p>
-<p>Para verificar as camadas de uma imagem distroless e garantir sua origem, você pode usar a
-ferramenta &ldquo;dive&rdquo;.</p>
+<p>Distroless images are a special class of Docker images that stand out for their minimalist approach.</p>
+<p>Unlike traditional images that include a full operating system, distroless images contain only what
+is necessary to run an application. This means there are no unnecessary packages or utilities, which
+significantly reduces the container’s attack surface.</p>
+<p>The importance of distroless images is twofold. First, they reduce the amount of potentially
+vulnerable software present in the container. Second, they make containers lighter and faster to
+deploy, saving hardware resources and improving scalability.</p>
+<p>To inspect the layers of a distroless image and ensure its provenance, you can use the <code>dive</code> tool.</p>
 <p><a href="https://gochronicles.com/dive/"  class="external-link" target="_blank" rel="noopener">Dive - Analyze Docker Images (</a><a href="http://gochronicles.com/"  class="external-link" target="_blank" rel="noopener">gochronicles.com</a><a href="https://gochronicles.com/dive/"  class="external-link" target="_blank" rel="noopener">)</a></p>
-<p>Ela permite que você inspecione as camadas de uma imagem e verifique se não há conteúdo não
-desejado.</p>
-<p>Por exemplo:</p>
+<p>It allow you to inspect an image&rsquo;s layers and check for any unwanted content.</p>
+<p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">dive gcr.io/distroless/base-debian10
 </span></span></code></pre></div><hr>
-<h3 id="healthchecks-mantendo-a-saúde-do-contêiner">
-  Healthchecks: Mantendo a Saúde do Contêiner
-  <a class="heading-link" href="#healthchecks-mantendo-a-sa%c3%bade-do-cont%c3%aainer">
+<h3 id="healthchecks-keeping-the-container-healthy">
+  Healthchecks: Keeping the Container Healthy
+  <a class="heading-link" href="#healthchecks-keeping-the-container-healthy">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Agora que sabemos como tornar nossos contêineres mais seguros com imagens distroless, é hora de
-adicionar uma camada adicional de robustez: healthchecks. Um healthcheck é uma função que verifica
-se o contêiner está em um estado saudável e funcional. Isso é fundamental para a monitorização e
-garantia da disponibilidade contínua de sua aplicação.</p>
-<p>Os healthchecks podem ser implementados diretamente no Dockerfile. Vamos dar uma olhada em como
-fazer isso:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># Use uma imagem distroless como base</span><span class="err">
+<p>Now that we know how to make our containers more secure with distroless images, it’s time to add
+another layer of robustness: <code>healthchecks</code>.</p>
+<p>A healthcheck is a function that verifies whether the container is in a healthy and functional
+state. This is essential for monitoring and ensuring the continuous availability of your
+application.</p>
+<p>Healthchecks can be implemented directly in the Dockerfile. Here’s an example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># Use a distroless base image</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> gcr.io/distroless/base-debian10</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copie os arquivos da sua aplicação para o contêiner</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> minha_app /minha_app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy application files into the container</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> my_app /my_app<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Defina a porta em que sua aplicação está ouvindo</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Define the port your application listens on</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8080</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Adicione um healthcheck</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Add a healthcheck</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">HEALTHCHECK</span> --interval<span class="o">=</span>5s --timeout<span class="o">=</span>3s <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="k">CMD</span> curl -f http://localhost:8080/health <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Comando para iniciar sua aplicação</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/minha_app&#34;</span><span class="p">]</span><span class="err">
-</span></span></span></code></pre></div><p>Neste exemplo, usamos o comando <em>HEALTHCHECK</em> para definir uma verificação de saúde que executa o
-comando curl para verificar se a rota /health de nossa aplicação está respondendo corretamente. Se a
-verificação de saúde falhar, o contêiner será considerado em um estado não saudável e pode ser
-reiniciado automaticamente.</p>
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Command to start your application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/my_app&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><p>In this example, we use the HEALTHCHECK instruction to define a health check that runs the curl
+command to verify whether our application’s /health endpoint is responding correctly. If the health
+check fails, the container will be marked as unhealthy and can be restarted automatically.</p>
 <hr>
-<h3 id="reinicialização-automática-com-healthchecks">
-  Reinicialização Automática com Healthchecks
-  <a class="heading-link" href="#reinicializa%c3%a7%c3%a3o-autom%c3%a1tica-com-healthchecks">
+<h3 id="automatic-restart-with-healthchecks">
+  Automatic Restart with Healthchecks
+  <a class="heading-link" href="#automatic-restart-with-healthchecks">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>A reinicialização automática é um dos benefícios dos healthchecks. Quando você utiliza
-orquestradores de contêineres, como Kubernetes, Docker Compose ou Swarm, eles podem monitorar o
-status dos healthchecks e tomar medidas automáticas quando um contêiner se torna não saudável. Por
-exemplo, no Kubernetes, você pode especificar a política de reinicialização para seus pods:</p>
+<p>One of the benefits of healthchecks is automatic restart. When you use container orchestrators like
+Kubernetes, Docker Compose, or Swarm, they can monitor healthcheck statuses and take automatic
+action when a container becomes unhealthy.</p>
+<p>For example, in Kubernetes, you can specify the restart policy for your pods:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">meu-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">meu-app-container</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app-container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minha-imagem:tag</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
@@ -314,27 +303,27 @@ exemplo, no Kubernetes, você pode especificar a política de reinicialização 
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span></code></pre></div><p>Neste exemplo, o Kubernetes monitora a rota /health do contêiner e reinicializa automaticamente o
-pod se a verificação de saúde falhar. Isso garante que sua aplicação esteja sempre em execução e
-saudável.</p>
+</span></span></span></code></pre></div><p>In this example, Kubernetes monitors the container’s /health endpoint and automatically restarts the
+pod if the health check fails. This ensures your application is always running and healthy.</p>
 <p>Refer. Documentação Kubernetes.</p>
 <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQEya34_r8_tAQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1696491718381?e=1758758400&amp;v=beta&amp;t=K4LJm_aPtT5kovSuXgS9yAZuYR1H-UURoVtD46GcQd0" alt="Article content"></p>
 <p>Configure Liveness, Readiness and Startup Probes | Kubernetes</p>
 <hr>
-<h3 id="conclusão">
-  Conclusão
-  <a class="heading-link" href="#conclus%c3%a3o">
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>A segurança e a monitorização são elementos cruciais para o sucesso de contêineres em ambientes de
-produção. A utilização de imagens distroless, a implementação de healthchecks e a personalização
-adequada de seu Dockerfile ou yaml no Kubernetes são práticas recomendadas para alcançar esses
-objetivos. Ao minimizar a superfície de ataque, manter o controle sobre a saúde de seus contêineres
-e aproveitar as vantagens da reinicialização automática, você está dando passos importantes em
-direção a uma arquitetura de contêiner mais segura e confiável. Lembre-se sempre de adaptar essas
-práticas às necessidades específicas de sua aplicação e ambiente.</p>
+<p>Security and monitoring are crucial elements for the success of containers in production
+environments.</p>
+<p>Using distroless images, implementing healthchecks, and properly customizing your Dockerfile or
+Kubernetes YAML are best practices to achieve these goals.</p>
+<p>By minimizing the attack surface, maintaining control over container health, and leveraging
+automatic restarts, you take important steps toward a more secure and reliable container
+architecture.</p>
+<p>Always remember to adapt these practices to the specific needs of your application and environment.</p>
 
       </div>
 
@@ -360,16 +349,8 @@ práticas às necessidades específicas de sua aplicação e ambiente.</p>
 
     <footer class="footer">
   <section class="container">
-    ©
-    
-      2019 -
-    
-    2025
-     Valdir Junior 
-    ·
-    
-    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
-    
+    ©  2019 -
+     2025  Valdir Junior    <a></a> <a></a> 
   </section>
 </footer>
 

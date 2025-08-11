@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chainguard on Valdir Junior</title>
+    <link>http://localhost:1313/pt-br/tags/chainguard/</link>
+    <description>Recent content in Chainguard on Valdir Junior</description>
+    <generator>Hugo</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Fri, 02 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/pt-br/tags/chainguard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Otimizando o Dockerfile com Multi-Stage Builds e Imagens Seguras</title>
+      <link>http://localhost:1313/pt-br/posts/otimizando-o-dockerfile-com-multi-stage-builds/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt-br/posts/otimizando-o-dockerfile-com-multi-stage-builds/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://media.licdn.com/dms/image/v2/D4E12AQFiVMmK1xCdPA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1693653766393?e=1758758400&amp;amp;v=beta&amp;amp;t=Bn7TSy9VPWrDtZ0sT9O2sPazDNEfMBP7Kwz8AT67IKw&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Um dos desafios ao trabalhar com Docker é criar imagens eficientes em termos de tamanho e, ao mesmo&#xA;tempo, garantir a segurança do conteúdo dessas imagens. Este artigo mostrará uma opção como otimizar&#xA;o Dockerfile usando Multi-Stage Builds e como a ferramenta Chainguard pode ser usada para garantir a&#xA;segurança das imagens Docker.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Otimização com Multi-Stage Builds&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Multi-Stage Builds é uma técnica avançada no Docker que permite criar imagens mais eficientes e&#xA;menores em tamanho. A ideia básica é dividir a construção da imagem em várias etapas, chamadas de&#xA;&amp;ldquo;estágios&amp;rdquo;, cada uma com seu próprio ambiente de construção. Isso é particularmente útil quando você&#xA;precisa compilar código-fonte ou realizar outras tarefas complexas durante a construção da imagem.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

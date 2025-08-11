@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-  Como funciona o Isolamento de containers utilizado pelo Docker · Valdir Junior
+  How Docker Uses Linux Kernel Features to Isolate Containers · Valdir Junior
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,19 +13,19 @@
 
 
 <meta name="author" content="Valdir Junior">
-<meta name="description" content="Entenda como o Docker utiliza recursos do kernel Linux para isolar contêineres, garantindo que aplicações funcionem de forma independente em um ambiente compartilhado.">
+<meta name="description" content="understanding how Docker uses Linux kernel features like CGroups, Namespaces, and Unshare to isolate containers.">
 <meta name="keywords" content="devops, cloud, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Como funciona o Isolamento de containers utilizado pelo Docker">
-  <meta name="twitter:description" content="Entenda como o Docker utiliza recursos do kernel Linux para isolar contêineres, garantindo que aplicações funcionem de forma independente em um ambiente compartilhado.">
+  <meta name="twitter:title" content="How Docker Uses Linux Kernel Features to Isolate Containers">
+  <meta name="twitter:description" content="understanding how Docker uses Linux kernel features like CGroups, Namespaces, and Unshare to isolate containers.">
 
 <meta property="og:url" content="http://localhost:1313/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/">
   <meta property="og:site_name" content="Valdir Junior">
-  <meta property="og:title" content="Como funciona o Isolamento de containers utilizado pelo Docker">
-  <meta property="og:description" content="Entenda como o Docker utiliza recursos do kernel Linux para isolar contêineres, garantindo que aplicações funcionem de forma independente em um ambiente compartilhado.">
+  <meta property="og:title" content="How Docker Uses Linux Kernel Features to Isolate Containers">
+  <meta property="og:description" content="understanding how Docker uses Linux kernel features like CGroups, Namespaces, and Unshare to isolate containers.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -129,7 +129,7 @@
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link " href="/projects/"></a>
+              <a class="navigation-link " href="/projects/">Experience</a>
             </li>
           
             <li class="navigation-item">
@@ -142,8 +142,6 @@
           
           
             
-          
-            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -151,7 +149,7 @@
                 
               
               <li class="navigation-item">
-                <a href="/pt-br/">🇧🇷</a>
+                <a href="/pt-br/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/">🇧🇷</a>
               </li>
             
           
@@ -170,7 +168,7 @@
         <div class="post-title">
           <h1 class="title">
             <a class="title-link" href="http://localhost:1313/posts/como-funciona-o-isolamento-de-containers-utilizado-pelo-docker/">
-              Como funciona o Isolamento de containers utilizado pelo Docker
+              How Docker Uses Linux Kernel Features to Isolate Containers
             </a>
           </h1>
         </div>
@@ -184,7 +182,7 @@
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              6-minute read
+              5-minute read
             </span>
           </div>
           
@@ -224,198 +222,194 @@
       <div class="post-content">
         
         <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQHVJusYLjguHA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693822466067?e=1758758400&amp;v=beta&amp;t=bPRZ8xzT7u3DhwjV3quxfZMEjyDlriIElSfE-EKA2h0" alt=""></p>
-<p>O Docker revolucionou a forma como as aplicações sao implantadas e gerenciadas, utilizando o
-conceito de contêineres. Um dos pilares fundamentais dessa recurso é o isolamento, que possibilita a
-execução de várias aplicações em um único host sem que elas interfiram umas nas outras.</p>
-<p>Esse isolamento é alcançado por meio de recursos essenciais do kernel Linux, como Control Groups
-(CGroups), Namespaces e o comando Unshare. Neste artigo, vamos ter uma compreensão desses recursos e
-como eles são empregados para criar ambientes isolados no Docker.</p>
-<h3 id="introdução-ao-isolamento-no-docker">
-  Introdução ao Isolamento no Docker
-  <a class="heading-link" href="#introdu%c3%a7%c3%a3o-ao-isolamento-no-docker">
+<p>Docker has revolutionized the way applications are deployed and managed by using the concept of
+containers. One of the fundamental pillars of this feature is isolation, which enables multiple
+applications to run on a single host without interfering with one another. This isolation is
+achieved through essential Linux kernel features such as Control Groups (CGroups), Namespaces, and
+the unshare command. In this article, we will gain an understanding of these features and how they
+are used to create isolated environments in Docker.</p>
+<h3 id="instroduction-to-container-isolation-in-docker">
+  Instroduction to Container Isolation in Docker
+  <a class="heading-link" href="#instroduction-to-container-isolation-in-docker">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>O isolamento é crucial para garantir que as aplicações em contêineres funcionem de maneira
-independente em um ambiente compartilhado. Sem um isolamento adequado, as aplicações poderiam entrar
-em conflito umas com as outras, tornando a implantação mais complexa e arriscada.</p>
-<p>Para compreender o isolamento no Docker, é essencial conhecer três componentes-chave:</p>
+<p>Isolation is crucial to ensure that containerized applications operate independently in a shared
+environment. Without proper isolation, applications could conflict with each other, making
+deployment more complex and risky.</p>
+<p>To understand isolation in Docker, it is essential to be familiar with three key components:</p>
 <ul>
 <li><strong>Control Groups (CGroups)</strong></li>
 </ul>
-<p>Control Groups, ou CGroups, é uma funcionalidade que possibilita o controle e a limitação de
-recursos de um processo. O Docker utiliza CGroups para impor limites de CPU, memória, E/S e outros
-recursos em contêineres. Isso garante que uma aplicação em um contêiner não monopolize todos os
-recursos do sistema, tornando o ambiente mais equilibrado e seguro.</p>
+<p>Control Groups, or CGroups, is a feature that allows controlling and limiting the resources of a
+process. Docker uses CGroups to enforce CPU, memory, I/O, and resource limits on containers. This
+ensures that an application in one container does not monopolize all system resources, making the
+enviroment more balanced and secure.</p>
 <ul>
 <li><strong>Namespaces</strong></li>
 </ul>
-<p>Namespaces fornecem isolamento de recursos do sistema, como processos, sistemas de arquivos e redes.
-O Docker utiliza namespaces para criar um ambiente isolado para cada contêiner. Isso significa que
-cada contêiner &ldquo;enxerga&rdquo; apenas seus próprios processos, sistemas de arquivos e interfaces de rede,
-criando a ilusão de que está sendo executado em um sistema separado.</p>
+<p>Namespaces provide isolation of system resources such as process, file systems, and networks. Docker
+uses namespaces to create an isolated environment for each container. This means that each container
+&ldquo;sees&rdquo; only its own processes, file systems, and network interfaces, creating the illusion that it
+is running on a separete system.</p>
 <ul>
 <li><strong>Unshare</strong></li>
 </ul>
-<p>O comando Unshare permite criar um novo namespace para um processo existente, possibilitando a
-execução de processos em um ambiente isolado, sem a necessidade do Docker ou de outros gerenciadores
-de contêineres. O Unshare é uma ferramenta poderosa para experimentação, testes e situações em que
-você deseja criar um ambiente de contêiner personalizado.</p>
+<p>The <strong>Unshare</strong> command allows creating a new namespace for an existing process, enabling proceesses
+to run in an isolated environment without the need for Docker or other contatiner managers. Unshare
+is a powerful tool for experimentation, testing, and situations where you want to create a custom
+container environment.</p>
 <hr>
-<h3 id="executando-um-contêiner-no-linux">
-  Executando um Contêiner no Linux
-  <a class="heading-link" href="#executando-um-cont%c3%aainer-no-linux">
+<h3 id="running-a-container-on-linux">
+  Running a Container on Linux
+  <a class="heading-link" href="#running-a-container-on-linux">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Vamos agora explorar os passos necessários para criar e executar um contêiner no Linux, utizizando
-algumas ferramentas e conceitos essenciais, como CGroups, chroot, namespaces, Unshare e debootstrap.</p>
-<h3 id="conceitos-básicos">
-  Conceitos Básicos
-  <a class="heading-link" href="#conceitos-b%c3%a1sicos">
+<p>Let&rsquo;s now ecplore the steps required to create and run a container on Linux, using essential tools
+and concepts such as <strong>CGroups</strong>, <strong>chroot</strong>, <strong>namespaces</strong>, <strong>unshare</strong>, and <strong>debootstrap</strong>.</p>
+<h3 id="basic-concepts">
+  Basic Concepts
+  <a class="heading-link" href="#basic-concepts">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
 <ol>
-<li><strong><em>CGroups (Control Groups):</em></strong> É fundamental para a gestão de recursos permitindo o controle de
-CPU, memória&hellip;</li>
-<li><strong><em>Chroot:</em></strong> Altera o diretório raiz de um processo, permitindo que ele veja apenas um
-subdiretório específico como sua raiz.</li>
-<li><strong><em>Namespaces:</em></strong> Criar instâncias isoladas de recursos do sistema, como PID, rede, sistema de
-arquivos e outros.</li>
-<li><strong><em>Unshare:</em></strong> O comando Unshare é usado para criar namespaces isolados para um processo ou grupo
-de processos.</li>
-<li><strong><em>Debootstrap:</em></strong> O Debootstrap é uma ferramenta que permite criar sistemas de arquivos raiz
-mínimos para distribuições Linux. É comumente usado para criar sistemas de arquivos iniciais de
-contêineres.</li>
+<li><strong>CGroups (Control Groups)</strong>: Fundamental for resource management, allowing control over CPU,
+memory&hellip;</li>
+<li><strong>chroot</strong>: Changes the root directory of a process, allowing it to see only a specific
+subdirectory as its root.</li>
+<li><strong>Namespaces</strong>: Create isolated instances of system resources such as PID, network, file system,
+and others.</li>
+<li><strong>Unshare</strong>: The unshare command is used to create isolated namespaces for a process or group of
+processes.</li>
+<li><strong>Debootstrap</strong>: Is a tools that allows the creation of minimal toot file systems for Linux
+distributions. It is commonly used to create initial file systems for containers.</li>
 </ol>
 <hr>
-<h3 id="passo-1-preparar-o-sistema-de-arquivos-raiz">
-  Passo 1: Preparar o Sistema de Arquivos Raiz
-  <a class="heading-link" href="#passo-1-preparar-o-sistema-de-arquivos-raiz">
+<h3 id="step-1-prepare-the-root-file-system">
+  Step 1: Prepare the Root File System
+  <a class="heading-link" href="#step-1-prepare-the-root-file-system">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Utilizaremos o Debootstrap para criar um sistema de arquivos raiz mínimo. Vamos utilizar o Ubuntu
-como exemplo:</p>
+<p>we will use <strong>debootstrap</strong> to create a minimal root file system. In this example, we&rsquo;ll use Ubuntu:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo mkdir /container
 </span></span><span class="line"><span class="cl">debootstrap focal /container http://archive.ubuntu.com/ubuntu/
-</span></span></code></pre></div><h3 id="passo-2-configurar-o-isolamento-de-recursos">
-  Passo 2: Configurar o Isolamento de Recursos
-  <a class="heading-link" href="#passo-2-configurar-o-isolamento-de-recursos">
+</span></span></code></pre></div><h3 id="step-2-configure-resource-isolation">
+  Step 2: Configure Resource Isolation
+  <a class="heading-link" href="#step-2-configure-resource-isolation">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Vamos usar o comando Unshare para criar namespaces de PID, rede e sistema de arquivos para o
-contêiner:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">unshare --fork --pid --mount-proc --uts --ipc --net --map-root-user
-</span></span></code></pre></div><p><strong>O que essa linha faz:</strong> O comando unshare cria um novo processo com namespaces isolados em várias
-áreas do sistema.</p>
+<p>We will use the unshare command to create PID, network, and file system namespaces for the
+container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">unshare --fork -- pid --mount-proc --uts --ipc --net --map-root-user
+</span></span></code></pre></div><p><strong>What this line does:</strong> The unshare command creates a new process with isolated namespaces in
+several areas of the system:</p>
 <ol>
-<li><strong>&ndash;fork:</strong> Esta opção indica que o unshare deve criar um novo processo filho após isolar os
-namespaces. O processo filho será executado sem nenhuma tarefa específica após a criação dos
-namespaces.</li>
-<li><strong>&ndash;pid:</strong> Isola o namespace PID, o que significa que o processo criado terá seu próprio espaço
-de processo separado dos processos fora do namespace PID.</li>
-<li><strong>&ndash;mount-proc:</strong> Monta um sistema de arquivos /proc isolado para o processo criado, permitindo
-que ele tenha sua própria visualização do sistema de arquivos /proc.</li>
-<li><strong>&ndash;uts:</strong> Isola o namespace UTS, que controla o nome do host. Isso permite que o processo criado
-tenha seu próprio nome de host.</li>
-<li><strong>&ndash;ipc:</strong> Isola o namespace IPC, que controla a comunicação interprocesso. Isso impede que o
-processo criado interaja diretamente com processos fora do namespace IPC.</li>
-<li><strong>&ndash;net:</strong> Isola o namespace de rede, o que significa que o processo criado terá sua própria
-pilha de rede e configurações de rede separadas.</li>
-<li><strong>&ndash;map-root-user:</strong> Isso permite que o processo criado seja tratado como root (superusuário)
-dentro do namespace, mesmo que não tenha permissões de root no sistema host.</li>
+<li><strong>&ndash;fork</strong>: Instructs unshare to creaet new child process after isolating the namespaces. The
+child process will run without any specific task right after the namespaces are created.</li>
+<li><strong>&ndash;pid</strong>: Isolates the PID namespace, meaning the created process will have its own separate
+process space from those outside the PID namespace.</li>
+<li><strong>&ndash;moun-proc</strong>: Mounts an isolated /proc file system for the created process, giving it its own
+view of /proc.</li>
+<li><strong>&ndash;uts</strong>: Isolates the UTS namespace, which controls the hostname. This allows the created
+process to have its own hostname.</li>
+<li><strong>&ndash;ipc</strong>: Isolates the IPC namespace, which manages interprocess communication. this prevents
+the created process form directly interacting with processes outside the IPC namespace.</li>
+<li><strong>&ndash;net</strong>: Isolates the network namespace, meaning the created process will have its own separate
+network stack and network settings.</li>
+<li><strong>&ndash;map-root-user</strong>: Allows the created process to be treated as root (superuser) inside the
+namespace, even without root permissions on the host system.</li>
 </ol>
-<h3 id="passo-3-iniciar-o-processo-no-contêiner">
-  Passo 3: Iniciar o Processo no Contêiner
-  <a class="heading-link" href="#passo-3-iniciar-o-processo-no-cont%c3%aainer">
+<h3 id="step-3-start-the-process-inseide-the-container">
+  Step 3: Start the Process Inseide the Container
+  <a class="heading-link" href="#step-3-start-the-process-inseide-the-container">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Dentro do ambiente chroot, você pode iniciar os processos desejados. Por exemplo:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"> chroot /container /bin/bash
-</span></span></code></pre></div><h3 id="passo-4-isolar-o-uso-de-recursos-com-cgroups">
-  Passo 4: Isolar o Uso de Recursos com CGroups
-  <a class="heading-link" href="#passo-4-isolar-o-uso-de-recursos-com-cgroups">
+<p>within the chroot environment, you can start any desired processess. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">chroot /container /bin/bash
+</span></span></code></pre></div><h3 id="step-4-isolate-resource-usage-with-cgroups">
+  Step 4: Isolate Resource Usage with CGroups
+  <a class="heading-link" href="#step-4-isolate-resource-usage-with-cgroups">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Para limitar o uso de recursos pelo contêiner, você pode criar um grupo de controle (CGroup) para o
-processo do contêiner e definir limites usando comandos como cgcreate, cgset e cgexec.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># Instale o pacote cgroups para conseguir manipular esses recursos</span>
-</span></span><span class="line"><span class="cl">sudo apt-get install cgroups-tools
+<p>To limit the container&rsquo;s resource usage, you can create a control group (CGroup) for the container&rsquo;s
+process and set limits using command like <code>cgcreate</code>, <code>cgset</code> and <code>cgexec</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1">#Install the cgroups package to manipulate these resources</span>
+</span></span><span class="line"><span class="cl">sudo apt install cgroups-tools
 </span></span></code></pre></div><hr>
-<h2 id="aqui-estão-alguns-exemplos-de-como-executar-um-contêiner-utilizando-os-conceitos-mencionados">
-  Aqui estão alguns exemplos de como executar um contêiner utilizando os conceitos mencionados
-  <a class="heading-link" href="#aqui-est%c3%a3o-alguns-exemplos-de-como-executar-um-cont%c3%aainer-utilizando-os-conceitos-mencionados">
+<h2 id="examples-of-running-a-container-using-the-concepts-mentioned">
+  Examples of Running a Container Using the Concepts Mentioned
+  <a class="heading-link" href="#examples-of-running-a-container-using-the-concepts-mentioned">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<h3 id="exemplo-1-criar-um-contêiner-simples">
-  Exemplo 1: Criar um Contêiner Simples
-  <a class="heading-link" href="#exemplo-1-criar-um-cont%c3%aainer-simples">
+<h3 id="example-1-create-a-simple-container">
+  Example 1: Create a Simple Container
+  <a class="heading-link" href="#example-1-create-a-simple-container">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Vamos criar um contêiner ubunut mínimo e executar um shell dentro dele:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># Preparar o sistema de arquivos raiz</span>
+<p>Let&rsquo;s create a minimal Ubuntu container and run a shell inside it:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># Prepare the root file system</span>
 </span></span><span class="line"><span class="cl">debootstrap focal /container http://archive.ubuntu.com/ubuntu/
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Configurar o isolamento de recursos</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Configure resource isolation</span>
 </span></span><span class="line"><span class="cl">unshare --fork --pid --mount-proc --uts --ipc --net --map-root-user chroot /container /bin/bash
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Iniciar o shell no contêiner</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#Start the shell in the container</span>
 </span></span><span class="line"><span class="cl">/bin/bash
-</span></span></code></pre></div><h3 id="exemplo-2-isolar-o-uso-de-cpu-com-cgroups">
-  Exemplo 2: Isolar o Uso de CPU com CGroups
-  <a class="heading-link" href="#exemplo-2-isolar-o-uso-de-cpu-com-cgroups">
+</span></span></code></pre></div><h3 id="example-2-isolate-cpu-usage-with-cgroups">
+  Example 2: Isolate CPU Usage with CGroups
+  <a class="heading-link" href="#example-2-isolate-cpu-usage-with-cgroups">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Suponha que você deseje limitar o uso de CPU do contêiner a 50%:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># Criar um grupo de controle para o contêiner</span>
+<p>Suppose you want to limit the container&rsquo;s CPU usage to 50%:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># Create a control group for the container</span>
 </span></span><span class="line"><span class="cl">cgcreate -g cpu:container_group
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Definir o limite de CPU para 50%</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Set CPU limit to 50%</span>
 </span></span><span class="line"><span class="cl">cgset -r cpu.cfs_quota_us<span class="o">=</span><span class="m">50000</span> container_group
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Executar o processo do contêiner</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Run the container process</span>
 </span></span><span class="line"><span class="cl">cgexec -g cpu:container_group /bin/bash
-</span></span></code></pre></div><h2 id="conclusão">
-  Conclusão
-  <a class="heading-link" href="#conclus%c3%a3o">
+</span></span></code></pre></div><hr>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>Este artigo explorou de maneira basica e simples os fundamentos da criação e execução de containers
-no Linux, utilizando ferramentas como cgroups, chroot, namespaces, unshare e debootstrap. Essas
-técnicas permitem isolar processos em ambientes independentes, O que é a base essencial para a
-containerização.</p>
-<p>No entanto, é importante destacar que a utilização de ferramentas como Docker simplifica
-consideravelmente a criação e gerenciamento de containers.</p>
-<p>Por baixo dos panos, essas ferramentas combinam essas técnicas com automação, controle de imagem,
-redes e volume de dados, oferecendo uma experiência mais fácil e completa para o desenvolvimento e
-implantação de aplicações em containers.</p>
-<p>O Docker, em particular, utiliza o conjunto de tecnologias mencionadas neste artigo para criar e
-gerenciar containers, mas também fornece uma camada de abstração de alto nível que facilita a
-criação, compartilhamento e execução de containers. Ele utiliza um sistema de imagens, registros e
-comandos específicos para simplificar o processo.</p>
-<p>Em resumo, enquanto a compreensão dos princípios fundamentais é valiosa para profissionais de DevOps
-e sysadmins, o uso de ferramentas como Docker tornou a adoção de containers muito mais acessível e
-produtiva para a maioria dos desenvolvedores e administradores de sistemas.</p>
+<p>This article explored, in a basic and simple way, the fundamentals of creating and running
+containers on Linux using tools such as cgroups, chroot, namespaces, unshare, and debootstrap. These
+techniques allow processes to be isolated in independent environments, which is the essential
+foundation of containerization.</p>
+<p>However, it is important to note that tools like Docker greatly simplify the creation and management
+of containers. Behind the scenes, these tools combine the mentioned techniques with automation,
+image management, networking, and data volumes, providing an easier and more complete experience for
+developing and deploying containerized applications. Docker, in particular, uses the set of
+technologies mentioned in this article to create and manage containers but also provides a
+high-level abstraction layer that makes creating, sharing, and running containers much easier. It
+uses an image system, registries, and specific commands to streamline the process. In short, while
+understanding these fundamental principles is valuable for</p>
+<p>DevOps professionals and sysadmins, the use of tools like Docker has made container adoption much
+more accessible and productive for most developers and system administrators.</p>
 
       </div>
 
@@ -441,16 +435,8 @@ produtiva para a maioria dos desenvolvedores e administradores de sistemas.</p>
 
     <footer class="footer">
   <section class="container">
-    ©
-    
-      2019 -
-    
-    2025
-     Valdir Junior 
-    ·
-    
-    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
-    
+    ©  2019 -
+     2025  Valdir Junior    <a></a> <a></a> 
   </section>
 </footer>
 

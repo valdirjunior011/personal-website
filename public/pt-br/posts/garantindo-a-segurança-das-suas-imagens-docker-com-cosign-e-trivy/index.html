@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Segurança das suas Imagens Docker com Cosign e Trivy · Valdir Junior
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Valdir Junior">
+<meta name="description" content="Aprenda a proteger suas imagens Docker com Cosign e Trivy, garantindo autenticidade e mitigando vulnerabilidades.">
+<meta name="keywords" content="devops, nuvem, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Segurança das suas Imagens Docker com Cosign e Trivy">
+  <meta name="twitter:description" content="Aprenda a proteger suas imagens Docker com Cosign e Trivy, garantindo autenticidade e mitigando vulnerabilidades.">
+
+<meta property="og:url" content="http://localhost:1313/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/">
+  <meta property="og:site_name" content="Valdir Junior">
+  <meta property="og:title" content="Segurança das suas Imagens Docker com Cosign e Trivy">
+  <meta property="og:description" content="Aprenda a proteger suas imagens Docker com Cosign e Trivy, garantindo autenticidade e mitigando vulnerabilidades.">
+  <meta property="og:locale" content="pt_br">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Cosign">
+    <meta property="article:tag" content="Trivy">
+    <meta property="article:tag" content="Segurança">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/pt-br/">
+      Valdir Junior
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/about/">Sobre</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/posts/">Publicações</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/projects/">Experiência</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/pt-br/valdir-junior.pdf">Currículo</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">🇺🇸</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/">
+              Segurança das suas Imagens Docker com Cosign e Trivy
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-02-02T00:00:00Z">
+                fevereiro 2, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5 minutos de leitura
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/pt-br/categories/devops/">DevOps</a>
+      <span class="separator">•</span>
+    <a href="/pt-br/categories/containers/">Containers</a>
+      <span class="separator">•</span>
+    <a href="/pt-br/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/pt-br/tags/docker/">Docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/cosign/">Cosign</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/trivy/">Trivy</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/pt-br/tags/seguran%C3%A7a/">Segurança</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQFgNMFMfdYHnA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693557973466?e=1758758400&amp;v=beta&amp;t=7h4EVwvYmt7k-1ArSh7o1IUs3rYhN73Eqeb-BfSyfgU" alt=""></p>
+<p>A segurança das imagens Docker é uma preocupação crucial para qualquer equipe de TI. Garantir a
+autenticidade e integridade das imagens Docker se tornou uma prioridade inegável. As imagens Docker
+são os blocos de construção fundamentais para a implantação de aplicativos em contêineres, e
+qualquer comprometimento de sua segurança pode resultar em sérias consequências, desde violações de
+dados até interrupções de serviços críticos.</p>
+<p>Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua infraestrutura. Uma
+dessas soluções é o Cosign, uma ferramenta de segurança de imagens Docker que se tornou uma parte
+essencial do arsenal de qualquer administrador de contêineres para dar autenticidade a suas imagens.</p>
+<p>Com o Cosign você garanti que suas imagens Docker sejam autênticas, e que não foram adulteradas.</p>
+<p><img src="https://media.licdn.com/dms/image/v2/D4E12AQEphSCuFt6o3w/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1693560241827?e=1758758400&amp;v=beta&amp;t=kXQDGI9bhucEbQsRqr6y5GfObMJSnqIylp2nKAsvnY4" alt="Article content"></p>
+<p>Signing Containers - Sigstore</p>
+<p>Além disso, exploraremos como complementar a segurança com o Trivy, uma ferramenta de verificação de
+vulnerabilidades, para criar uma abordagem completa de segurança de imagens Docker.</p>
+<p><img src="https://media.licdn.com/dms/image/v2/D4E12AQHwGPoxwItGLQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1693560312187?e=1758758400&amp;v=beta&amp;t=DcMGSYCsHFjTh1w1JpEjAxln7U0h6QN5ANrQsvjH-jI" alt="Article content"></p>
+<p>Trivy Home - Trivy</p>
+<hr>
+<ul>
+<li><strong><em>Entendendo a Segurança em Imagens Docker</em></strong></li>
+</ul>
+<p>A segurança de imagens Docker é fundamental em ambientes de contêineres porque imagens corrompidas
+ou comprometidas podem resultar em consequências extremamente graves, ameaçando a estabilidade e a
+integridade de sistemas inteiros. As ameaças que pairam sobre imagens Docker são variadas e
+abrangentes.</p>
+<ol>
+<li><strong>Imagens Maliciosas</strong>: Uma das ameaças mais comuns é a possibilidade de imagens Docker
+maliciosas. Isso ocorre quando uma imagem foi projetada para explorar vulnerabilidades ou abrir
+portas para ataques. Essas imagens podem ser distribuídas de maneira enganosa, muitas vezes
+disfarçadas como recursos legítimos ou populares.</li>
+<li><strong>Vulnerabilidades Não Corrigidas</strong>: Outro grande risco reside nas vulnerabilidades não
+corrigidas presentes nas imagens Docker. Uma imagem pode conter componentes desatualizados ou
+vulnerabilidades conhecidas que podem ser exploradas por atacantes para obter acesso não
+autorizado ou comprometer a integridade do sistema. A falta de gerenciamento de patches e
+atualizações regulares torna a infraestrutura vulnerável a esses tipos de ameaças.</li>
+<li><strong>Ataques de Supply Chain</strong>: Os ataques de supply chain têm se tornado uma preocupação crescente.
+Nesses casos, os atacantes comprometem o processo de construção e distribuição de imagens Docker
+legítimas.</li>
+</ol>
+<p>A compreensão dessas ameaças é essencial pois a segurança de imagens Docker não é apenas uma
+preocupação técnica, mas também uma questão crítica de proteção de dados e continuidade dos
+negócios. É por isso que ferramentas como o Cosign e o Trivy desempenham um papel crucial na
+mitigação dessas ameaças.</p>
+<hr>
+<ul>
+<li><strong><em>O que é o Cosign?</em></strong></li>
+</ul>
+<p>O Cosign é uma ferramenta de assinatura digital que fornece autenticação e verificação de imagens
+Docker. Ele permite que você assine imagens com chaves de segurança, garantindo que apenas imagens
+autenticadas e confiáveis sejam implantadas em seu ambiente.</p>
+<ul>
+<li><strong><em>Benefícios do Uso do Cosign</em></strong></li>
+</ul>
+<p>Ao adotar o Cosign, você pode garantir que suas imagens Docker sejam provenientes de fontes
+confiáveis. Isso protege contra a implantação de imagens falsificadas ou comprometidas. Além disso,
+o Cosign fornece uma camada adicional de segurança, ajudando a manter sua infraestrutura segura e
+confiável.</p>
+<hr>
+<ul>
+<li><strong><em>Como Começar com o Cosign</em></strong></li>
+</ul>
+<p>Para começar a usar o Cosign, você pode seguir estas etapas simples.</p>
+<p>Instale o Cosign em seu ambiente.</p>
+<ul>
+<li><strong>MacOS</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">brew install cosign
+</span></span></code></pre></div><ul>
+<li><strong>Binary or rpm/dpkg package</strong>
+(<a href="https://github.com/sigstore/cosign/releases/latest"  class="external-link" target="_blank" rel="noopener">Cosign release page)</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># binary</span>
+</span></span><span class="line"><span class="cl">curl -O -L <span class="s2">&#34;https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64&#34;</span>
+</span></span><span class="line"><span class="cl">mv cosign-linux-amd64 /usr/local/bin/cosign
+</span></span><span class="line"><span class="cl">chmod +x /usr/local/bin/cosign
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># rpm</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LATEST_VERSION</span><span class="o">=</span><span class="k">$(</span>curl https://api.github.com/repos/sigstore/cosign/releases/latest <span class="p">|</span> grep tag_name <span class="p">|</span> cut -d : -f2 <span class="p">|</span> tr -d <span class="s2">&#34;v\&#34;, &#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">curl -O -L <span class="s2">&#34;https://github.com/sigstore/cosign/releases/latest/download/cosign-</span><span class="si">${</span><span class="nv">LATEST_VERSION</span><span class="si">}</span><span class="s2">.x86_64.rpm&#34;</span>
+</span></span><span class="line"><span class="cl">rpm -ivh cosign-<span class="si">${</span><span class="nv">LATEST_VERSION</span><span class="si">}</span>.x86_64.rpm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># dkpg</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LATEST_VERSION</span><span class="o">=</span><span class="k">$(</span>curl https://api.github.com/repos/sigstore/cosign/releases/latest <span class="p">|</span> grep tag_name <span class="p">|</span> cut -d : -f2 <span class="p">|</span> tr -d <span class="s2">&#34;v\&#34;, &#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">curl -O -L <span class="s2">&#34;https://github.com/sigstore/cosign/releases/latest/download/cosign_</span><span class="si">${</span><span class="nv">LATEST_VERSION</span><span class="si">}</span><span class="s2">_amd64.deb&#34;</span>
+</span></span><span class="line"><span class="cl">dpkg -i cosign_<span class="si">${</span><span class="nv">LATEST_VERSION</span><span class="si">}</span>_amd64.deb
+</span></span></code></pre></div><p>Em seguida, gere um par de chaves. *Guarde sua chave .key ela é de extrema importancia para assinar
+suas imagens.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign generate-key-pair
+</span></span></code></pre></div><p>Finalmente, assine suas imagens Docker com o Cosign usando o comando</p>
+<ul>
+<li>Altere o cosign.key para o nome da sua chave</li>
+<li>Altere o repositorio para o seu no DockerHub por exemplo</li>
+<li>Altere imagem e tag para as imagens que existe no seu repositorio.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign sign --key cosign.key repositorio/imagem:tag
+</span></span></code></pre></div><p>e para verificar alguma imagem assinada docker</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign verify --key cosign.pub repositorio/imagem:tag
+</span></span></code></pre></div><blockquote>
+<p>[!info] a chave publica pode ser compartilhada para que outras pessoas verifiquem a autenticidade
+da sua imagem.</p></blockquote>
+<hr>
+<ul>
+<li><strong><em>Melhores Práticas de Segurança</em></strong></li>
+</ul>
+<p>Além de usar o Cosign, é fundamental incorporar uma verificação de vulnerabilidades em suas imagens
+Docker. Como mensionado anteriormente uma ferramenta valiosa para essa finalidade é o Trivy. O Trivy
+examina imagens de contêineres em busca de vulnerabilidades conhecidas e fornece informações
+detalhadas sobre qualquer risco potencial. Ele pode ser integrado facilmente aos seus pipelines de
+CI/CD para garantir que apenas imagens seguras sejam implantadas.</p>
+<p>Para começar com o Trivy, você pode instalá-lo</p>
+<ul>
+<li>MacOs</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">brew install trivy
+</span></span></code></pre></div><p>Ubuntu</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">wget https://github.com/aquasecurity/trivy/releases/download/v0.45.0/trivy_0.45.0_Linux-64bit.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i trivy_0.45.0_Linux-64bit.deb
+</span></span></code></pre></div><p>Para fazer o scan nas suas imagens utilize</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">trivy image name_of_image:tag
+</span></span></code></pre></div><p>A ferramenta verificará as camadas da imagem em busca de vulnerabilidades e fornecerá uma lista de
+quaisquer problemas encontrados. Isso permite que você tome medidas proativas para corrigir
+vulnerabilidades ou escolher imagens mais seguras.</p>
+<p>Lembre-se de que a segurança é um processo contínuo. Portanto, agendar verificações regulares com o
+Trivy é uma prática recomendada para garantir que suas imagens Docker permaneçam protegidas ao longo
+do tempo.</p>
+<ul>
+<li><strong><em>Conclusão</em></strong></li>
+</ul>
+<p>Em resumo, o uso do Cosign e do Trivy em conjunto pode fortalecer significativamente a segurança de
+suas imagens Docker. Ao adotar essas melhores práticas, você pode proteger sua organização contra
+ameaçass, garantindo que suas imagens sejam autênticas e tendo as vulnerabilidades mitigadas.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©  2019 -
+     2025  Valdir Junior    <a></a> <a></a> 
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

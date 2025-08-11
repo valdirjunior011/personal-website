@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-   · Valdir Junior
+  Docker Volumes: Share and Persist Data Efficiently · Valdir Junior
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,30 +13,28 @@
 
 
 <meta name="author" content="Valdir Junior">
-<meta name="description" content="
-Uma das características fundamentais que fazem do Docker uma escolha popular é a capacidade de persistir dados entre execuções de contêineres. Isso é possível graças ao uso de volumes Docker. Neste artigo, exploraremos o conceito de Docker volumes de forma abrangente.
-
-O que são Docker Volumes?
-Em termos simples, Docker volumes são mecanismos que permitem que dados sejam compartilhados e persistidos entre contêineres e o host em que o Docker está sendo executado. Eles são especialmente úteis quando se trata de armazenar dados, como bancos de dados, logs ou qualquer outro tipo de informações que precisa &ldquo;sobreviver&rdquo; além do ciclo de vida de um contêiner.">
+<meta name="description" content="How to use Docker volumes to share and persist data efficiently in your applications.">
 <meta name="keywords" content="devops, cloud, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Valdir Junior">
-  <meta name="twitter:description" content="Uma das características fundamentais que fazem do Docker uma escolha popular é a capacidade de persistir dados entre execuções de contêineres. Isso é possível graças ao uso de volumes Docker. Neste artigo, exploraremos o conceito de Docker volumes de forma abrangente.
-O que são Docker Volumes?
-Em termos simples, Docker volumes são mecanismos que permitem que dados sejam compartilhados e persistidos entre contêineres e o host em que o Docker está sendo executado. Eles são especialmente úteis quando se trata de armazenar dados, como bancos de dados, logs ou qualquer outro tipo de informações que precisa “sobreviver” além do ciclo de vida de um contêiner.">
+  <meta name="twitter:title" content="Docker Volumes: Share and Persist Data Efficiently">
+  <meta name="twitter:description" content="How to use Docker volumes to share and persist data efficiently in your applications.">
 
 <meta property="og:url" content="http://localhost:1313/posts/dominando-docker-volumes/">
   <meta property="og:site_name" content="Valdir Junior">
-  <meta property="og:title" content="Valdir Junior">
-  <meta property="og:description" content="Uma das características fundamentais que fazem do Docker uma escolha popular é a capacidade de persistir dados entre execuções de contêineres. Isso é possível graças ao uso de volumes Docker. Neste artigo, exploraremos o conceito de Docker volumes de forma abrangente.
-O que são Docker Volumes?
-Em termos simples, Docker volumes são mecanismos que permitem que dados sejam compartilhados e persistidos entre contêineres e o host em que o Docker está sendo executado. Eles são especialmente úteis quando se trata de armazenar dados, como bancos de dados, logs ou qualquer outro tipo de informações que precisa “sobreviver” além do ciclo de vida de um contêiner.">
+  <meta property="og:title" content="Docker Volumes: Share and Persist Data Efficiently">
+  <meta property="og:description" content="How to use Docker volumes to share and persist data efficiently in your applications.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-02T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Volumes">
+    <meta property="article:tag" content="Containers">
+    <meta property="article:tag" content="Devops">
 
 
 
@@ -143,8 +141,6 @@ Em termos simples, Docker volumes são mecanismos que permitem que dados sejam c
           
           
             
-          
-            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -152,7 +148,7 @@ Em termos simples, Docker volumes são mecanismos que permitem que dados sejam c
                 
               
               <li class="navigation-item">
-                <a href="/pt-br/">🇧🇷</a>
+                <a href="/pt-br/posts/dominando-docker-volumes/">🇧🇷</a>
               </li>
             
           
@@ -171,7 +167,7 @@ Em termos simples, Docker volumes são mecanismos que permitem que dados sejam c
         <div class="post-title">
           <h1 class="title">
             <a class="title-link" href="http://localhost:1313/posts/dominando-docker-volumes/">
-              
+              Docker Volumes: Share and Persist Data Efficiently
             </a>
           </h1>
         </div>
@@ -179,8 +175,8 @@ Em termos simples, Docker volumes são mecanismos que permitem que dados sejam c
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
+              <time datetime="2024-03-02T00:00:00Z">
+                March 2, 2024
               </time>
             </span>
             <span class="reading-time">
@@ -189,113 +185,160 @@ Em termos simples, Docker volumes são mecanismos que permitem que dados sejam c
             </span>
           </div>
           
-          
-          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/devops/">DevOps</a>
+      <span class="separator">•</span>
+    <a href="/categories/containers/">Containers</a>
+      <span class="separator">•</span>
+    <a href="/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/docker/">Docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/volumes/">Volumes</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/containers/">Containers</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/devops/">Devops</a>
+    </span></div>
+
         </div>
       </header>
 
       <div class="post-content">
         
         <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQEerXYc8JGnFA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694435515394?e=1758758400&amp;v=beta&amp;t=UxGuBTGGWEnDDex9-bjyIXHAQMHQx4tLUMqzjdeY4Us" alt=""></p>
-<p>Uma das características fundamentais que fazem do Docker uma escolha popular é a capacidade de persistir dados entre execuções de contêineres. Isso é possível graças ao uso de volumes Docker. Neste artigo, exploraremos o conceito de Docker volumes de forma abrangente.</p>
+<p>One of the fundamental features that make Docker a popular choice is the ability to persist data
+across container runs. This is possible thanks to Docker volumes. In this article, we’ll explore the
+concept of Docker volumes comprehensively.</p>
 <hr>
-<p><strong>O que são Docker Volumes?</strong></p>
-<p>Em termos simples, Docker volumes são mecanismos que permitem que dados sejam compartilhados e persistidos entre contêineres e o host em que o Docker está sendo executado. Eles são especialmente úteis quando se trata de armazenar dados, como bancos de dados, logs ou qualquer outro tipo de informações que precisa &ldquo;sobreviver&rdquo; além do ciclo de vida de um contêiner.</p>
-<p>Docker volumes oferecem várias vantagens, como:</p>
+<p><strong>What Are Docker Volumes?</strong></p>
+<p>Simply put, Docker volumes are mechanisms that allow data to be shared and persisted between
+containers and the host where Docker is running. They are especially useful for storing data such as
+databases, logs, or any other information that needs to &ldquo;survive&rdquo; beyond a container’s lifecycle.</p>
+<p>Docker volumes offer several advantages, including:</p>
 <ol>
 <li>
-<p><strong>Persistência de Dados:</strong> Os dados armazenados em volumes não são perdidos quando um contêiner é interrompido ou excluído.</p>
+<p><strong>Data Persistence</strong>: Data stored in volumes is not lost when a container stops or is removed.</p>
 </li>
 <li>
-<p><strong>Compartilhamento de Dados:</strong> Volumes podem ser compartilhados entre vários contêineres, tornando possível que vários contêineres acessem os mesmos dados.</p>
+<p><strong>Data Sharing</strong>: Volumes can be shared across multiple containers, enabling them to access the
+same data.</p>
 </li>
 <li>
-<p><strong>Desempenho Aprimorado:</strong> Em comparação com a cópia de dados diretamente para dentro e para fora dos contêineres, o uso de volumes pode melhorar significativamente o desempenho de E/S.</p>
+<p><strong>Improved Performance</strong>: Compared to copying data directly in and out of containers, using
+volumes can significantly improve I/O performance.</p>
 </li>
 <li>
-<p><strong>Backup e Restauração Simples:</strong> Como os dados estão isolados nos volumes, fazer backup e restaurar torna-se uma tarefa mais simples.</p>
+<p><strong>Simple Backup and Restore</strong>: Since data is isolated in volumes, backing up and restoring
+becomes easier.</p>
 </li>
 </ol>
 <hr>
-<p>Agora que sabemos por que os volumes são importantes, vamos dar uma olhada em como usá-los.</p>
-<h2 id="usando-docker-volumes">
-  Usando Docker Volumes
-  <a class="heading-link" href="#usando-docker-volumes">
+<p>Now that we understand why volumes matter, let’s look at how to use them.</p>
+<h2 id="using-docker-volumes">
+  Using Docker Volumes
+  <a class="heading-link" href="#using-docker-volumes">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<h3 id="tipos-de-montagem">
-  Tipos de Montagem
-  <a class="heading-link" href="#tipos-de-montagem">
+<h3 id="mount-types">
+  Mount Types
+  <a class="heading-link" href="#mount-types">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
 <ul>
-<li><strong>Montagem de Volumes de Host (Bind Mounts):</strong> Os volumes de host, ou bind mounts, permitem montar diretórios ou arquivos do sistema de arquivos do host diretamente para dentro do contêiner. Isso significa que você pode compartilhar dados específicos do host com um contêiner. Para criar um bind mount, você usa a opção -v ou &ndash;volume seguida do caminho do host e do caminho do contêiner.</li>
+<li><strong>Host Volume Mounts (Bind Mounts)</strong>: Host volumes, or bind mounts, allow you to mount directories
+or files from the host’s filesystem directly into a container. This means you can share specific
+host data with a container. To create a bind mount, use the -v or &ndash;volume option followed by the
+host path and container path.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run -v /caminho/no/host:/caminho/no/contêiner meu_aplicativo
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run -v /path/on/host:/path/in/container my_app
 </span></span></code></pre></div><blockquote>
-<p>Isso montará o diretório /caminho/no/host do host dentro do contêiner no caminho /caminho/no/contêiner.</p></blockquote>
+<p>This mounts the /path/on/host directory from the host into the container at /path/in/container.</p></blockquote>
 <ul>
-<li><strong>Volumes de Contêiner (Container Volumes):</strong> Os volumes de contêiner são volumes específicos do Docker que são gerenciados pelo Docker Daemon. Eles são criados automaticamente e são geralmente mais flexíveis em relação a onde e como os dados são armazenados no host. Para criar um volume de contêiner, você pode usar_:_</li>
+<li><strong>Docker Volumes (Managed by Docker)</strong>: Docker volumes are Docker-specific volumes managed by the
+Docker daemon. They are created automatically and are generally more flexible regarding where and
+how data is stored on the host. To create a Docker volume, you can run:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"> docker volume create meu_volume
-</span></span></code></pre></div><p>Isso criará um volume chamado &ldquo;meu_volume&rdquo; que pode ser montado em um ou mais contêineres.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume create my_volume
+</span></span></code></pre></div><p>This creates a volume named my_volume that can be mounted into one or more containers.</p>
 <hr>
-<h3 id="montando-um-volume-em-um-contêiner">
-  Montando um Volume em um Contêiner
-  <a class="heading-link" href="#montando-um-volume-em-um-cont%c3%aainer">
+<h3 id="mounting-a-volume-in-a-container">
+  Mounting a Volume in a Container
+  <a class="heading-link" href="#mounting-a-volume-in-a-container">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Agora, vamos criar um contêiner e montar nosso volume nele. Suponha que você tenha um aplicativo que precisa armazenar dados em um volume.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># -d para rodar em background</span>
-</span></span><span class="line"><span class="cl">docker run -d -v meu_volume:/app/data meu_aplicativo
-</span></span></code></pre></div><p>Neste comando, estamos criando um novo contêiner a partir da imagem &ldquo;meu_aplicativo&rdquo; e montando o volume &ldquo;meu_volume&rdquo; em &ldquo;/app/data&rdquo; dentro do contêiner. Qualquer dado escrito em &ldquo;/app/data&rdquo; dentro do contêiner será armazenado no volume &ldquo;meu_volume&rdquo; no host.</p>
-<p><strong>Compartilhando Volumes entre Contêineres</strong></p>
-<p>Um dos benefícios dos volumes é a capacidade de compartilhá-los entre contêineres. Isso é útil quando você deseja que vários contêineres acessem os mesmos dados. Para fazer isso, você pode simplesmente montar o mesmo volume em diferentes contêineres.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run -d -v meu_volume:/app/data contêiner_1
-</span></span><span class="line"><span class="cl">docker run -d -v meu_volume:/app/data contêiner_2
-</span></span></code></pre></div><p>Agora, &ldquo;contêiner_1&rdquo; e &ldquo;contêiner_2&rdquo; podem acessar e modificar os mesmos dados armazenados no volume &ldquo;meu_volume&rdquo;.</p>
+<p>Now, let’s create a container and mount our volume to it. Suppose you have an app that needs to
+store data in a volume.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># -d to run in detached mode (background)</span>
+</span></span><span class="line"><span class="cl">docker run -d -v my_volume:/app/data my_app
+</span></span></code></pre></div><p>This command creates a new container from the image my_app and mounts the volume my_volume to
+/app/data inside the container. Any data written to /app/data inside the container will be stored in
+the my_volume volume on the host.</p>
+<p><strong>Sharing Volumes Between Containers</strong></p>
+<p>One of the benefits of volumes is the ability to share them between containers. This is useful when
+you want multiple containers to access the same data. To do this, simply mount the same volume in
+different containers.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run -d -v my_volume:/app/data container_1
+</span></span><span class="line"><span class="cl">docker run -d -v my_volume:/app/data container_2
+</span></span></code></pre></div><p>Now, both <code>container_1</code> and <code>container_2</code> can access and modify the same data stored in the
+my_volume volume.</p>
 <blockquote>
-<p>[!info] Como não especificamos as permissões, por default todos tem direito rw (ler e escrever)</p></blockquote>
-<p><strong>Visualizando Volumes</strong></p>
-<p>Para listar todos os volumes Docker no seu sistema, você pode usar o comando:</p>
+<p>Since we don’t specify permissions, by default all containers have read-write (rw) access.</p></blockquote>
+<p><strong>Viewing Volumes</strong></p>
+<p>To list all Docker volumes on your system, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume ls
-</span></span></code></pre></div><p>Para inspecionar um volume específico, use:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume inspect meu_volume
+</span></span></code></pre></div><p>To inspect a specific volume, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume inspect my_volume
 </span></span></code></pre></div><hr>
-<h3 id="exemplo-de-como-utilizar-o-docker-volume">
-  Exemplo de como utilizar o Docker Volume
-  <a class="heading-link" href="#exemplo-de-como-utilizar-o-docker-volume">
+<h3 id="examples-of-using-docker-volumes">
+  Examples of Using Docker Volumes
+  <a class="heading-link" href="#examples-of-using-docker-volumes">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><strong>Exemplo1: Armazenar Dados em um Banco de Dados</strong></p>
-<p>Vamos executar um contêiner de banco de dados MySQL. E criar um volume para armazenar os dados do banco de dados da seguinte forma:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume create banco_de_dados
-</span></span><span class="line"><span class="cl">docker run -d -v banco_de_dados:/var/lib/mysql mysql:latest
-</span></span></code></pre></div><p>Isso garantirá que os dados do banco de dados sejam persistidos no volume &ldquo;banco_de_dados&rdquo;.</p>
-<p><strong>Exemplo 2: Compartilhar Logs</strong></p>
-<p>Agora você tem um aplicativo web e um servidor de logs em contêineres diferentes. Você pode criar um volume para compartilhar os logs entre os dois contêineres:</p>
+<p><strong>Example 1: Storing Data in a Database</strong></p>
+<p>Let’s run a MySQL database container and create a volume to store its data:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume create database_data
+</span></span><span class="line"><span class="cl">docker run -d -v database_data:/var/lib/mysql mysql:latest
+</span></span></code></pre></div><p>This ensures the database data persists in the database_data volume.</p>
+<p><strong>Example 2: Sharing Logs</strong></p>
+<p>Suppose you have a web app and a log server running in separate containers. You can create a volume
+to share logs between them:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker volume create logs
-</span></span><span class="line"><span class="cl">docker run -d -v logs:/app/logs meu_aplicativo_web
-</span></span><span class="line"><span class="cl">docker run -d -v logs:/app/logs servidor_de_logs
-</span></span></code></pre></div><p>Agora, ambos os contêineres podem acessar os mesmos logs no volume &ldquo;logs&rdquo;.</p>
+</span></span><span class="line"><span class="cl">docker run -d -v logs:/app/logs my_web_app
+</span></span><span class="line"><span class="cl">docker run -d -v logs:/app/logs log_server
+</span></span></code></pre></div><p>Now both containers can access the same logs in the logs volume.</p>
 <hr>
-<h3 id="conclusão">
-  Conclusão
-  <a class="heading-link" href="#conclus%c3%a3o">
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Os Docker volumes são uma ferramenta essencial para gerenciar dados de forma eficiente e persistente em contêineres. Eles permitem que você persista dados, compartilhe informações entre contêineres e melhore o desempenho de E/S. Com os conceitos e exemplos apresentados neste artigo, você ja esta pronto para começar a usar volumes Docker em seus próprios projetos. Explore mais e experimente diferentes casos de uso para aprimorar suas habilidades com Docker.</p>
-<p>Documentação oficial <a href="https://docs.docker.com/storage/volumes/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/storage/volumes/</a></p>
+<p>Docker volumes are an essential tool for managing data efficiently and persistently in containers.
+They allow you to persist data, share information between containers, and improve I/O performance.
+With the concepts and examples presented here, you’re ready to start using Docker volumes in your
+own projects. Explore further and experiment with different use cases to sharpen your Docker skills.</p>
+<p>Official documentation:
+<a href="https://docs.docker.com/storage/volumes/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/storage/volumes/</a></p>
 
       </div>
 

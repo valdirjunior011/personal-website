@@ -159,6 +159,8 @@ cgset -r cpu.cfs_quota_us=50000 container_group
 cgexec -g cpu:container_group /bin/bash
 ```
 
+---
+
 ## Conclusão
 
 Este artigo explorou de maneira basica e simples os fundamentos da criação e execução de containers
@@ -181,4 +183,3 @@ comandos específicos para simplificar o processo.
 Em resumo, enquanto a compreensão dos princípios fundamentais é valiosa para profissionais de DevOps
 e sysadmins, o uso de ferramentas como Docker tornou a adoção de containers muito mais acessível e
 produtiva para a maioria dos desenvolvedores e administradores de sistemas.
-

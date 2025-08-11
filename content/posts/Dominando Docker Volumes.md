@@ -1,118 +1,150 @@
++++ 
+author = ["Valdir Junior"] 
+title = "Docker Volumes: Share and Persist Data Efficiently" 
+date = "2024-03-02" 
+description = "How to use Docker volumes to share and persist data efficiently in your applications." 
+tags = ["docker", "volumes", "containers", "devops"] 
+categories = ["DevOps","Containers", "Linux"] 
++++
+
 ![](https://media.licdn.com/dms/image/v2/D4E12AQEerXYc8JGnFA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694435515394?e=1758758400&v=beta&t=UxGuBTGGWEnDDex9-bjyIXHAQMHQx4tLUMqzjdeY4Us)
 
-Uma das características fundamentais que fazem do Docker uma escolha popular é a capacidade de persistir dados entre execuções de contêineres. Isso é possível graças ao uso de volumes Docker. Neste artigo, exploraremos o conceito de Docker volumes de forma abrangente.
+One of the fundamental features that make Docker a popular choice is the ability to persist data
+across container runs. This is possible thanks to Docker volumes. In this article, we’ll explore the
+concept of Docker volumes comprehensively.
 
 ---
 
-**O que são Docker Volumes?**
+**What Are Docker Volumes?**
 
-Em termos simples, Docker volumes são mecanismos que permitem que dados sejam compartilhados e persistidos entre contêineres e o host em que o Docker está sendo executado. Eles são especialmente úteis quando se trata de armazenar dados, como bancos de dados, logs ou qualquer outro tipo de informações que precisa "sobreviver" além do ciclo de vida de um contêiner.
+Simply put, Docker volumes are mechanisms that allow data to be shared and persisted between
+containers and the host where Docker is running. They are especially useful for storing data such as
+databases, logs, or any other information that needs to "survive" beyond a container’s lifecycle.
 
-Docker volumes oferecem várias vantagens, como:
+Docker volumes offer several advantages, including:
 
-1. **Persistência de Dados:** Os dados armazenados em volumes não são perdidos quando um contêiner é interrompido ou excluído.
+1. **Data Persistence**: Data stored in volumes is not lost when a container stops or is removed.
 
-2. **Compartilhamento de Dados:** Volumes podem ser compartilhados entre vários contêineres, tornando possível que vários contêineres acessem os mesmos dados.
+2. **Data Sharing**: Volumes can be shared across multiple containers, enabling them to access the
+   same data.
 
-3. **Desempenho Aprimorado:** Em comparação com a cópia de dados diretamente para dentro e para fora dos contêineres, o uso de volumes pode melhorar significativamente o desempenho de E/S.
+3. **Improved Performance**: Compared to copying data directly in and out of containers, using
+   volumes can significantly improve I/O performance.
 
-4. **Backup e Restauração Simples:** Como os dados estão isolados nos volumes, fazer backup e restaurar torna-se uma tarefa mais simples.
-
----
-
-Agora que sabemos por que os volumes são importantes, vamos dar uma olhada em como usá-los.
-
-## Usando Docker Volumes
-
-### Tipos de Montagem
-
-- **Montagem de Volumes de Host (Bind Mounts):** Os volumes de host, ou bind mounts, permitem montar diretórios ou arquivos do sistema de arquivos do host diretamente para dentro do contêiner. Isso significa que você pode compartilhar dados específicos do host com um contêiner. Para criar um bind mount, você usa a opção -v ou --volume seguida do caminho do host e do caminho do contêiner.
-
-```zsh
-docker run -v /caminho/no/host:/caminho/no/contêiner meu_aplicativo
-```
-
-> Isso montará o diretório /caminho/no/host do host dentro do contêiner no caminho /caminho/no/contêiner.
-
-- **Volumes de Contêiner (Container Volumes):** Os volumes de contêiner são volumes específicos do Docker que são gerenciados pelo Docker Daemon. Eles são criados automaticamente e são geralmente mais flexíveis em relação a onde e como os dados são armazenados no host. Para criar um volume de contêiner, você pode usar_:_
-
-```zsh
- docker volume create meu_volume
-```
-
-Isso criará um volume chamado "meu_volume" que pode ser montado em um ou mais contêineres.
+4. **Simple Backup and Restore**: Since data is isolated in volumes, backing up and restoring
+   becomes easier.
 
 ---
 
-### Montando um Volume em um Contêiner
+Now that we understand why volumes matter, let’s look at how to use them.
 
-Agora, vamos criar um contêiner e montar nosso volume nele. Suponha que você tenha um aplicativo que precisa armazenar dados em um volume.
+## Using Docker Volumes
 
-```zsh
-# -d para rodar em background
-docker run -d -v meu_volume:/app/data meu_aplicativo
-```
+### Mount Types
 
-Neste comando, estamos criando um novo contêiner a partir da imagem "meu_aplicativo" e montando o volume "meu_volume" em "/app/data" dentro do contêiner. Qualquer dado escrito em "/app/data" dentro do contêiner será armazenado no volume "meu_volume" no host.
-
-**Compartilhando Volumes entre Contêineres**
-
-Um dos benefícios dos volumes é a capacidade de compartilhá-los entre contêineres. Isso é útil quando você deseja que vários contêineres acessem os mesmos dados. Para fazer isso, você pode simplesmente montar o mesmo volume em diferentes contêineres.
+- **Host Volume Mounts (Bind Mounts)**: Host volumes, or bind mounts, allow you to mount directories
+  or files from the host’s filesystem directly into a container. This means you can share specific
+  host data with a container. To create a bind mount, use the -v or --volume option followed by the
+  host path and container path.
 
 ```zsh
-docker run -d -v meu_volume:/app/data contêiner_1
-docker run -d -v meu_volume:/app/data contêiner_2
+docker run -v /path/on/host:/path/in/container my_app
 ```
 
-Agora, "contêiner_1" e "contêiner_2" podem acessar e modificar os mesmos dados armazenados no volume "meu_volume".
+> This mounts the /path/on/host directory from the host into the container at /path/in/container.
 
-> [!info] Como não especificamos as permissões, por default todos tem direito rw (ler e escrever)
+- **Docker Volumes (Managed by Docker)**: Docker volumes are Docker-specific volumes managed by the
+  Docker daemon. They are created automatically and are generally more flexible regarding where and
+  how data is stored on the host. To create a Docker volume, you can run:
 
-**Visualizando Volumes**
+```zsh
+docker volume create my_volume
+```
 
-Para listar todos os volumes Docker no seu sistema, você pode usar o comando:
+This creates a volume named my_volume that can be mounted into one or more containers.
+
+---
+
+### Mounting a Volume in a Container
+
+Now, let’s create a container and mount our volume to it. Suppose you have an app that needs to
+store data in a volume.
+
+```zsh
+# -d to run in detached mode (background)
+docker run -d -v my_volume:/app/data my_app
+```
+
+This command creates a new container from the image my_app and mounts the volume my_volume to
+/app/data inside the container. Any data written to /app/data inside the container will be stored in
+the my_volume volume on the host.
+
+**Sharing Volumes Between Containers**
+
+One of the benefits of volumes is the ability to share them between containers. This is useful when
+you want multiple containers to access the same data. To do this, simply mount the same volume in
+different containers.
+
+```zsh
+docker run -d -v my_volume:/app/data container_1
+docker run -d -v my_volume:/app/data container_2
+```
+
+Now, both `container_1` and `container_2` can access and modify the same data stored in the
+my_volume volume.
+
+> Since we don’t specify permissions, by default all containers have read-write (rw) access.
+
+**Viewing Volumes**
+
+To list all Docker volumes on your system, use:
 
 ```zsh
 docker volume ls
 ```
 
-Para inspecionar um volume específico, use:
+To inspect a specific volume, use:
 
 ```zsh
-docker volume inspect meu_volume
+docker volume inspect my_volume
 ```
 
 ---
 
-### Exemplo de como utilizar o Docker Volume
+### Examples of Using Docker Volumes
 
-**Exemplo1: Armazenar Dados em um Banco de Dados**
+**Example 1: Storing Data in a Database**
 
-Vamos executar um contêiner de banco de dados MySQL. E criar um volume para armazenar os dados do banco de dados da seguinte forma:
+Let’s run a MySQL database container and create a volume to store its data:
 
 ```zsh
-docker volume create banco_de_dados
-docker run -d -v banco_de_dados:/var/lib/mysql mysql:latest
+docker volume create database_data
+docker run -d -v database_data:/var/lib/mysql mysql:latest
 ```
 
-Isso garantirá que os dados do banco de dados sejam persistidos no volume "banco_de_dados".
+This ensures the database data persists in the database_data volume.
 
-**Exemplo 2: Compartilhar Logs**
+**Example 2: Sharing Logs**
 
-Agora você tem um aplicativo web e um servidor de logs em contêineres diferentes. Você pode criar um volume para compartilhar os logs entre os dois contêineres:
+Suppose you have a web app and a log server running in separate containers. You can create a volume
+to share logs between them:
 
 ```zsh
 docker volume create logs
-docker run -d -v logs:/app/logs meu_aplicativo_web
-docker run -d -v logs:/app/logs servidor_de_logs
+docker run -d -v logs:/app/logs my_web_app
+docker run -d -v logs:/app/logs log_server
 ```
 
-Agora, ambos os contêineres podem acessar os mesmos logs no volume "logs".
+Now both containers can access the same logs in the logs volume.
 
 ---
 
-### Conclusão
+### Conclusion
 
-Os Docker volumes são uma ferramenta essencial para gerenciar dados de forma eficiente e persistente em contêineres. Eles permitem que você persista dados, compartilhe informações entre contêineres e melhore o desempenho de E/S. Com os conceitos e exemplos apresentados neste artigo, você ja esta pronto para começar a usar volumes Docker em seus próprios projetos. Explore mais e experimente diferentes casos de uso para aprimorar suas habilidades com Docker.
+Docker volumes are an essential tool for managing data efficiently and persistently in containers.
+They allow you to persist data, share information between containers, and improve I/O performance.
+With the concepts and examples presented here, you’re ready to start using Docker volumes in your
+own projects. Explore further and experiment with different use cases to sharpen your Docker skills.
 
-Documentação oficial [https://docs.docker.com/storage/volumes/](https://docs.docker.com/storage/volumes/)
+Official documentation:
+[https://docs.docker.com/storage/volumes/](https://docs.docker.com/storage/volumes/)
