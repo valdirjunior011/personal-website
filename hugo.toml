@@ -106,6 +106,12 @@ icon = "fa-brands fa-linkedin fa-2x"
 weight = 2
 url = "https://www.linkedin.com/in/valdirjunior011/"
 
+[[params.social]]
+name = "Whatsapp"
+icon = "fa-brands fa-whatsapp fa-2x"
+weight = 3
+url = "https://api.whatsapp.com/send?phone=4915221346457&text=Hi%20Valdir"
+
 [languages.en]
 languageName = ":us:"
 
