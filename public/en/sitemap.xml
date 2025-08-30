@@ -329,6 +329,18 @@
                 href="http://localhost:1313/about/"
                 />
   </url><url>
+    <loc>http://localhost:1313/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/"
+                />
+  </url><url>
     <loc>http://localhost:1313/posts/network-no-docker/</loc>
     <xhtml:link
                 rel="alternate"

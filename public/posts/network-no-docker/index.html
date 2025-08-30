@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-   · Valdir Junior
+  Docker Networking Basics: Concepts and Examples · Valdir Junior
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,39 +13,28 @@
 
 
 <meta name="author" content="Valdir Junior">
-<meta name="description" content="
-Fundamentos da Rede Docker
-Antes de mergulharmos nos tópicos mais complexos, é importante entender os conceitos fundamentais da rede no Docker.
-
-Bridge Network
-
-Uma bridge network é a rede padrão criada quando você instala o Docker. Ela permite que os contêineres se comuniquem uns com os outros na mesma rede usando nomes de host.
-Vamos criar uma rede bridge chamada &ldquo;my_network&rdquo; para demonstrar como funciona:
-docker network create my_network
-Agora, vamos executar dois containers nessa rede:">
+<meta name="description" content=" Learning the fundamental concepts of Docker networking, including bridge networks, port forwarding, custom networks, and advanced features like IPvlan, Macvlan, and None Network. Discover how to create and manage Docker networks with practical examples.">
 <meta name="keywords" content="devops, cloud, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Valdir Junior">
-  <meta name="twitter:description" content="Fundamentos da Rede Docker
-Antes de mergulharmos nos tópicos mais complexos, é importante entender os conceitos fundamentais da rede no Docker.
-Bridge Network Uma bridge network é a rede padrão criada quando você instala o Docker. Ela permite que os contêineres se comuniquem uns com os outros na mesma rede usando nomes de host.
-Vamos criar uma rede bridge chamada “my_network” para demonstrar como funciona:
-docker network create my_network Agora, vamos executar dois containers nessa rede:">
+  <meta name="twitter:title" content="Docker Networking Basics: Concepts and Examples">
+  <meta name="twitter:description" content="Learning the fundamental concepts of Docker networking, including bridge networks, port forwarding, custom networks, and advanced features like IPvlan, Macvlan, and None Network. Discover how to create and manage Docker networks with practical examples.">
 
 <meta property="og:url" content="http://localhost:1313/posts/network-no-docker/">
   <meta property="og:site_name" content="Valdir Junior">
-  <meta property="og:title" content="Valdir Junior">
-  <meta property="og:description" content="Fundamentos da Rede Docker
-Antes de mergulharmos nos tópicos mais complexos, é importante entender os conceitos fundamentais da rede no Docker.
-Bridge Network Uma bridge network é a rede padrão criada quando você instala o Docker. Ela permite que os contêineres se comuniquem uns com os outros na mesma rede usando nomes de host.
-Vamos criar uma rede bridge chamada “my_network” para demonstrar como funciona:
-docker network create my_network Agora, vamos executar dois containers nessa rede:">
+  <meta property="og:title" content="Docker Networking Basics: Concepts and Examples">
+  <meta property="og:description" content="Learning the fundamental concepts of Docker networking, including bridge networks, port forwarding, custom networks, and advanced features like IPvlan, Macvlan, and None Network. Discover how to create and manage Docker networks with practical examples.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Rede Docker">
+    <meta property="article:tag" content="Containers">
+    <meta property="article:tag" content="Devops">
 
 
 
@@ -178,7 +167,7 @@ docker network create my_network Agora, vamos executar dois containers nessa red
         <div class="post-title">
           <h1 class="title">
             <a class="title-link" href="http://localhost:1313/posts/network-no-docker/">
-              
+              Docker Networking Basics: Concepts and Examples
             </a>
           </h1>
         </div>
@@ -186,8 +175,8 @@ docker network create my_network Agora, vamos executar dois containers nessa red
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
+              <time datetime="2024-02-02T00:00:00Z">
+                February 2, 2024
               </time>
             </span>
             <span class="reading-time">
@@ -196,54 +185,81 @@ docker network create my_network Agora, vamos executar dois containers nessa red
             </span>
           </div>
           
-          
-          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/devops/">DevOps</a>
+      <span class="separator">•</span>
+    <a href="/categories/containers/">Containers</a>
+      <span class="separator">•</span>
+    <a href="/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/docker/">Docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rede-docker/">Rede Docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/containers/">Containers</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/devops/">Devops</a>
+    </span></div>
+
         </div>
       </header>
 
       <div class="post-content">
         
         <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQFcvRWeihIBbg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694442094516?e=1758758400&amp;v=beta&amp;t=FHEiicoOMbEloPH5RMlnSD8_vAUMSe_ILdJP2PUn4yk" alt=""></p>
-<p><strong>Fundamentos da Rede Docker</strong></p>
-<p>Antes de mergulharmos nos tópicos mais complexos, é importante entender os conceitos fundamentais da rede no Docker.</p>
+<p><strong>Docker Networking Fundamentals</strong></p>
+<p>Before diving into more complex topics, it’s important to understand the fundamental concepts of networking in Docker.</p>
 <ul>
 <li><strong>Bridge Network</strong></li>
 </ul>
-<p>Uma <strong>bridge network</strong> é a rede padrão criada quando você instala o Docker. Ela permite que os contêineres se comuniquem uns com os outros na mesma rede usando nomes de host.</p>
-<p>Vamos criar uma rede bridge chamada &ldquo;my_network&rdquo; para demonstrar como funciona:</p>
+<p>A <strong>bridge network</strong> is the default network created when you install Docker. It allows containers to communicate with each other on the same network using hostnames.</p>
+<p>Let’s create a bridge network called <code>my_network</code> to demonstrate how it works:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker network create my_network
-</span></span></code></pre></div><p>Agora, vamos executar dois containers nessa rede:</p>
+</span></span></code></pre></div><p>Now, let’s run two containers on this network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run --name container1 --network my_network -d nginx
 </span></span><span class="line"><span class="cl">docker run --name container2 --network my_network -d nginx
-</span></span></code></pre></div><p>Os containers <strong><em>container1</em></strong> e <strong><em>container2</em></strong> podem se comunicar usando os nomes de host <strong><em>container1</em></strong> e <strong><em>container2</em></strong>.</p>
+</span></span></code></pre></div><p>The containers <strong>container1</strong> and <strong>container2</strong> can communicate with each other using the hostnames <strong>container1</strong> and <strong>container2</strong>.</p>
 <ul>
-<li><strong>Port Forwarding</strong></li>
+<li>Port Forwarding</li>
 </ul>
-<p>O Docker permite que você encaminhe portas de contêineres para o host. Isso é útil quando você deseja acessar serviços dentro de um contêiner diretamente do seu sistema host.</p>
-<p>Por exemplo, para encaminhar a porta 8080 do contêiner para a porta 80 do host:</p>
+<p>Docker allows you to forward container ports to the host. This is useful when you want to access services inside a container directly from your host system.</p>
+<p>For example, to forward port <code>8080</code> of the container to port <code>80</code> on the host:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run -d -p 8080:80 nginx
 </span></span></code></pre></div><blockquote>
-<p>[!tip] Agora, você pode acessar o conteúdo do contêiner Nginx em http://localhost:8080 no seu navegador.</p></blockquote>
+<p>[!tip] Now you can access the Nginx container&rsquo;s content at http://localhost:8080 in your browser.</p></blockquote>
 <ul>
-<li><strong>Redes Personalizadas</strong></li>
+<li><strong>Custom Networks</strong></li>
 </ul>
-<p>As redes bridge são úteis, mas você também pode criar redes personalizadas para isolamento e maior controle. Por exemplo, você pode criar uma rede overlay para comunicação entre contêineres em diferentes hosts.</p>
+<p>Bridge networks are useful, but you can also create custom networks for isolation and greater control. For example, you can create an <strong>overlay network</strong> to enable communication between containers on different hosts.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker network create --driver overlay my_overlay_network
 </span></span></code></pre></div><blockquote>
-<p>[!warning] You need the following ports open to traffic to and from each Docker host participating on an overlay network: TCP port 2377 for cluster management communications TCP and UDP port 7946 for communication among nodes UDP port 4789 for overlay network traffic</p></blockquote>
+<p>[!warning] You need the following ports open to traffic to and from each Docker host participating in an overlay network:
+<strong>TCP</strong> port <strong>2377</strong> for cluster management communications
+<strong>TCP</strong> and <strong>UDP</strong> port <strong>7946</strong> for communication among nodes
+<strong>UDP</strong> port <strong>4789</strong> for overlay network traffic</p></blockquote>
 <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQGvUz-_HmErbQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1694512271901?e=1758758400&amp;v=beta&amp;t=hd8vawzYXp6TtLjoTTb1D_J1NheS2RYhgLi0p9we4fQ" alt="Article content"></p>
 <p><a href="https://docs.docker.com/network/drivers/overlay/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/network/drivers/overlay/</a></p>
 <hr>
-<h3 id="anexar-e-desanexar-containers">
-  Anexar e Desanexar Containers
-  <a class="heading-link" href="#anexar-e-desanexar-containers">
+<h3 id="attaching-and-detaching-containers">
+  Attaching and Detaching Containers
+  <a class="heading-link" href="#attaching-and-detaching-containers">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Para adicionar contêineres a uma rede existente, use o comando docker network connect:</p>
+<p>To add containers to an existing network, use the docker network connect command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker network connect my_network container3
-</span></span></code></pre></div><p>Para remover um contêiner de uma rede, use o comando docker network disconnect:</p>
+</span></span></code></pre></div><p>To remove a container from a network, use the docker network disconnect command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker network disconnect my_network container3
 </span></span></code></pre></div><hr>
 <h3 id="ipvlan-macvlan-e-none-network">
@@ -253,60 +269,61 @@ docker network create my_network Agora, vamos executar dois containers nessa red
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Além das redes bridge, overlay e personalizadas, o Docker oferece recursos avançados de rede que podem ser úteis em cenários mais complexos. Vamos explorar um pouco esses três recursos: <strong>IPvlan</strong>, <strong>Macvlan</strong> e <strong>None Network</strong>.</p>
+<p>In addition to bridge, overlay, and custom networks, Docker offers advanced networking features that can be useful in more complex scenarios. Let’s explore three of these features: <strong>IPvlan</strong>, <strong>Macvlan</strong>, and <strong>None Network</strong>.</p>
 <ul>
 <li><strong>IPvlan Network</strong></li>
 </ul>
-<p>A rede IPvlan permite que você atribua endereços IP individuais a cada contêiner, tornando-os acessíveis diretamente na rede externa. Isso é especialmente útil quando você deseja evitar a camada de encapsulamento da rede Docker e assim obter um melhor desempenho.</p>
-<p>Exemplo de Uso do IPvlan</p>
-<p>Primeiro, crie uma rede IPvlan:</p>
+<p>The IPvlan network allows you to assign individual IP addresses to each container, making them directly accessible on the external network. This is especially useful when you want to avoid Docker’s network encapsulation layer and achieve better performance.</p>
+<p>Example of Using <strong>IPvlan</strong></p>
+<p>First, create an IPvlan network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker network create -d ipvlan --subnet<span class="o">=</span>192.168.1.0/24 --gateway<span class="o">=</span>192.168.1.1 -o <span class="nv">parent</span><span class="o">=</span>eth0 my_ipvlan_network
-</span></span></code></pre></div><p>Agora, inicie um contêiner com um IP específico dentro dessa rede:</p>
+</span></span></code></pre></div><p>Now, start a container with a specific IP within this network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run --name container_ipvlan --network my_ipvlan_network --ip<span class="o">=</span>192.168.1.2 -d nginx
-</span></span></code></pre></div><p>O contêiner <strong><em>container_ipvlan</em></strong> agora tem um endereço IP válido na rede externa.</p>
+</span></span></code></pre></div><p>The container <strong>container_ipvlan</strong> now has a valid IP address on the external network.</p>
 <ul>
 <li><strong>Macvlan Network</strong></li>
 </ul>
-<p>A rede Macvlan é semelhante à IPvlan, mas permite que cada contêiner tenha seu próprio endereço MAC. Isso é útil quando você precisa de isolamento de camada de link e um endereço MAC exclusivo para cada contêiner.</p>
-<p>Exemplo de Uso do Macvlan</p>
-<p>Crie uma rede Macvlan:</p>
+<p>The Macvlan network is similar to IPvlan but allows each container to have its own MAC address. This is useful when you need link-layer isolation and a unique MAC address for each container.</p>
+<p>Example of Using Macvlan</p>
+<p>Create a Macvlan network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker network create -d macvlan --subnet<span class="o">=</span>192.168.1.0/24 --gateway<span class="o">=</span>192.168.1.1 -o <span class="nv">parent</span><span class="o">=</span>eth0 my_macvlan_network
-</span></span></code></pre></div><p>Inicie um contêiner na rede Macvlan:</p>
+</span></span></code></pre></div><p>Start a container on the Macvlan network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run --name container_macvlan --network my_macvlan_network -d nginx
-</span></span></code></pre></div><p>Agora, o contêiner <strong><em>container_macvlan</em></strong> tem seu próprio endereço MAC e IP na rede externa.</p>
+</span></span></code></pre></div><p>Now, the container <strong>container_macvlan</strong> has its own MAC address and IP on the external network.</p>
 <ul>
-<li><strong>None Network</strong></li>
+<li><strong>None Network</strong>*</li>
 </ul>
-<p>A rede None é uma rede que não fornece conectividade de rede externa para um contêiner somente a loopback é criada. Isso pode ser útil quando você deseja que um contêiner tenha sua rede desativada completamente, mas ainda esteja em execução.</p>
-<p>Exemplo de Uso da None Network</p>
-<p>Crie um contêiner com a rede None:</p>
+<p>The None network is a network that does not provide external network connectivity for a container—only the loopback interface is created. This can be useful when you want a container’s network completely disabled while it is still running.</p>
+<p>Example of Using the None Network</p>
+<p>Create a container on the None network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">docker run --name container_none --network none -d nginx
-</span></span></code></pre></div><p>O contêiner <strong><em>container_none</em></strong> não terá conectividade de rede externa, mas ainda pode ser usado para tarefas internas.</p>
+</span></span></code></pre></div><p>The container <strong>container_none</strong> will not have external network connectivity but can still be used for internal tasks.</p>
 <hr>
 <h3 id="network-scopes">
-  Network Scopes
+  <strong>Network Scopes</strong>
   <a class="heading-link" href="#network-scopes">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Os contêineres têm diferentes níveis de isolamento de rede. Eles podem estar em um escopo de rede global ou local. A rede bridge é um exemplo de escopo local, onde os contêineres podem se comunicar apenas na mesma máquina. As redes overlay são globais e permitem a comunicação entre hosts.</p>
-<h3 id="comunicação-entre-hosts">
-  Comunicação entre Hosts
-  <a class="heading-link" href="#comunica%c3%a7%c3%a3o-entre-hosts">
+<p>Containers have different levels of network isolation. They can be in a global or local network scope. A bridge network is an example of a local scope, where containers can communicate only on the same host. Overlay networks are global and allow communication between hosts.</p>
+<h3 id="cross-host-communication">
+  <strong>Cross-Host Communication</strong>
+  <a class="heading-link" href="#cross-host-communication">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Quando você tem contêineres em diferentes hosts, pode usar redes overlay para conectar os contêineres entre si. Para fazer isso, configure um serviço de descoberta de chave-valor como o Consul ou o etcd para que os contêineres possam se registrar e se descobrir em diferentes hosts.</p>
-<h3 id="conclusão">
-  Conclusão
-  <a class="heading-link" href="#conclus%c3%a3o">
+<p>When you have containers on different hosts, you can use overlay networks to connect containers across hosts. To do this, set up a key-value discovery service such as <strong>Consul</strong> or <strong>etcd</strong> so containers can register and discover each other across hosts.</p>
+<h3 id="conclusion">
+  <strong>Conclusion</strong>
+  <a class="heading-link" href="#conclusion">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>A rede no Docker é uma parte fundamental da orquestração de contêineres e da criação de aplicativos distribuídos. Neste artigo, exploramos alguns conceitos, como redes personalizadas, brigde, overlay, ipvlan, macvlan, none, além de fornecer exemplos básicos para ilustrar esses conceitos. Certifique-se de explorar a documentação do Docker <a href="https://docs.docker.com/network/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/network/</a> e experimentar os conceitos discutidos neste artigo em seu próprio ambiente de desenvolvimento para obter uma compreensão completa desses tópicos.</p>
+<p>Networking in Docker is a fundamental part of container orchestration and building distributed applications. In this article, we explored concepts such as custom networks, bridge, overlay, IPvlan, Macvlan, and None networks, providing basic examples to illustrate these concepts. Be sure to explore the Docker documentation <a href="https://docs.docker.com/network/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/network/</a>
+and experiment with the concepts discussed here in your own development environment to gain a full understanding of these topics.</p>
 
       </div>
 

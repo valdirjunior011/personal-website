@@ -285,6 +285,16 @@
   </url><url>
     <loc>http://localhost:1313/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/</loc>
     <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/"
+                />
   </url><url>
     <loc>http://localhost:1313/pt-br/tags/trivy/</loc>
     <lastmod>2024-02-02T00:00:00+00:00</lastmod>
@@ -358,7 +368,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/pt-br/authors/</loc>
-    <lastmod>2023-01-05T01:15:52+01:00</lastmod>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -369,6 +379,46 @@
                 hreflang="pt-br"
                 href="http://localhost:1313/pt-br/authors/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/pt-br/posts/rich-content/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/tags/css/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/categories/demonstra%C3%A7%C3%A3o-do-tema/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/series/demonstra%C3%A7%C3%A3o-do-tema/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/tags/html/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/tags/hugo/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/tags/markdown/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/authors/programador-solit%C3%A1rio/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pt-br/series/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/pt-br/series/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/pt-br/categories/sintaxe/</loc>
+    <lastmod>2023-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/pt-br/autores/autores-de-hugo/</loc>
     <lastmod>2023-01-05T01:15:52+01:00</lastmod>
@@ -426,18 +476,6 @@
                 rel="alternate"
                 hreflang="pt-br"
                 href="http://localhost:1313/pt-br/projects/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/pt-br/series/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="http://localhost:1313/pt-br/series/"
                 />
   </url>
 </urlset>

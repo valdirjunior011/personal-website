@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-   · Valdir Junior
+  Securing images using Cosign and Trivy · Valdir Junior
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,26 +13,28 @@
 
 
 <meta name="author" content="Valdir Junior">
-<meta name="description" content="
-A segurança das imagens Docker é uma preocupação crucial para qualquer equipe de TI. Garantir a autenticidade e integridade das imagens Docker se tornou uma prioridade inegável. As imagens Docker são os blocos de construção fundamentais para a implantação de aplicativos em contêineres, e qualquer comprometimento de sua segurança pode resultar em sérias consequências, desde violações de dados até interrupções de serviços críticos.
-Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua infraestrutura. Uma dessas soluções é o Cosign, uma ferramenta de segurança de imagens Docker que se tornou uma parte essencial do arsenal de qualquer administrador de contêineres para dar autenticidade a suas imagens.">
+<meta name="description" content="Learning how to secure your Docker images using Cosign and Trivy">
 <meta name="keywords" content="devops, cloud, kubernetes, docker, linux, ansible, terraform, python, aws, azure">
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Valdir Junior">
-  <meta name="twitter:description" content="A segurança das imagens Docker é uma preocupação crucial para qualquer equipe de TI. Garantir a autenticidade e integridade das imagens Docker se tornou uma prioridade inegável. As imagens Docker são os blocos de construção fundamentais para a implantação de aplicativos em contêineres, e qualquer comprometimento de sua segurança pode resultar em sérias consequências, desde violações de dados até interrupções de serviços críticos.
-Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua infraestrutura. Uma dessas soluções é o Cosign, uma ferramenta de segurança de imagens Docker que se tornou uma parte essencial do arsenal de qualquer administrador de contêineres para dar autenticidade a suas imagens.">
+  <meta name="twitter:title" content="Securing images using Cosign and Trivy">
+  <meta name="twitter:description" content="Learning how to secure your Docker images using Cosign and Trivy">
 
 <meta property="og:url" content="http://localhost:1313/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/">
   <meta property="og:site_name" content="Valdir Junior">
-  <meta property="og:title" content="Valdir Junior">
-  <meta property="og:description" content="A segurança das imagens Docker é uma preocupação crucial para qualquer equipe de TI. Garantir a autenticidade e integridade das imagens Docker se tornou uma prioridade inegável. As imagens Docker são os blocos de construção fundamentais para a implantação de aplicativos em contêineres, e qualquer comprometimento de sua segurança pode resultar em sérias consequências, desde violações de dados até interrupções de serviços críticos.
-Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua infraestrutura. Uma dessas soluções é o Cosign, uma ferramenta de segurança de imagens Docker que se tornou uma parte essencial do arsenal de qualquer administrador de contêineres para dar autenticidade a suas imagens.">
+  <meta property="og:title" content="Securing images using Cosign and Trivy">
+  <meta property="og:description" content="Learning how to secure your Docker images using Cosign and Trivy">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-02T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Cosign">
+    <meta property="article:tag" content="Trivy">
+    <meta property="article:tag" content="Security">
 
 
 
@@ -139,8 +141,6 @@ Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua
           
           
             
-          
-            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -148,7 +148,7 @@ Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua
                 
               
               <li class="navigation-item">
-                <a href="/pt-br/">🇧🇷</a>
+                <a href="/pt-br/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/">🇧🇷</a>
               </li>
             
           
@@ -167,7 +167,7 @@ Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua
         <div class="post-title">
           <h1 class="title">
             <a class="title-link" href="http://localhost:1313/posts/garantindo-a-seguran%C3%A7a-das-suas-imagens-docker-com-cosign-e-trivy/">
-              
+              Securing images using Cosign and Trivy
             </a>
           </h1>
         </div>
@@ -175,58 +175,88 @@ Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
+              <time datetime="2024-02-02T00:00:00Z">
+                February 2, 2024
               </time>
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              5-minute read
+              4-minute read
             </span>
           </div>
           
-          
-          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/devops/">DevOps</a>
+      <span class="separator">•</span>
+    <a href="/categories/containers/">Containers</a>
+      <span class="separator">•</span>
+    <a href="/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/docker/">Docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/cosign/">Cosign</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/trivy/">Trivy</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/security/">Security</a>
+    </span></div>
+
         </div>
       </header>
 
       <div class="post-content">
         
         <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQFgNMFMfdYHnA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693557973466?e=1758758400&amp;v=beta&amp;t=7h4EVwvYmt7k-1ArSh7o1IUs3rYhN73Eqeb-BfSyfgU" alt=""></p>
-<p>A segurança das imagens Docker é uma preocupação crucial para qualquer equipe de TI. Garantir a autenticidade e integridade das imagens Docker se tornou uma prioridade inegável. As imagens Docker são os blocos de construção fundamentais para a implantação de aplicativos em contêineres, e qualquer comprometimento de sua segurança pode resultar em sérias consequências, desde violações de dados até interrupções de serviços críticos.</p>
-<p>Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua infraestrutura. Uma dessas soluções é o Cosign, uma ferramenta de segurança de imagens Docker que se tornou uma parte essencial do arsenal de qualquer administrador de contêineres para dar autenticidade a suas imagens.</p>
-<p>Com o Cosign você garanti que suas imagens Docker sejam autênticas, e que não foram adulteradas.</p>
+<p>Docker image security is a crucial concern for any IT team. Ensuring the authenticity and integrity of Docker images has become an undeniable priority. Docker images are the fundamental building blocks for deploying containerized applications, and any compromise in their security can result in serious consequences, ranging from data breaches to disruptions of critical services.</p>
+<p>In this article, we’ll look at how we can use solutions to protect your infrastructure. One of these solutions is Cosign, a Docker image security tool that has become an essential part of any container administrator’s arsenal to ensure image authenticity.</p>
+<p>With Cosign, you guarantee that your Docker images are authentic and have not been tampered with.</p>
 <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQEphSCuFt6o3w/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1693560241827?e=1758758400&amp;v=beta&amp;t=kXQDGI9bhucEbQsRqr6y5GfObMJSnqIylp2nKAsvnY4" alt="Article content"></p>
-<p>Signing Containers - Sigstore</p>
-<p>Além disso, exploraremos como complementar a segurança com o Trivy, uma ferramenta de verificação de vulnerabilidades, para criar uma abordagem completa de segurança de imagens Docker.</p>
+<p>Signing Containers – Sigstore</p>
+<p>In addition, we will explore how to complement security with Trivy, a vulnerability scanning tool, to build a comprehensive approach to Docker image security.</p>
 <p><img src="https://media.licdn.com/dms/image/v2/D4E12AQHwGPoxwItGLQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1693560312187?e=1758758400&amp;v=beta&amp;t=DcMGSYCsHFjTh1w1JpEjAxln7U0h6QN5ANrQsvjH-jI" alt="Article content"></p>
 <p>Trivy Home - Trivy</p>
 <hr>
 <ul>
-<li><strong><em>Entendendo a Segurança em Imagens Docker</em></strong></li>
+<li><strong>Understanding Docker Image Security</strong></li>
 </ul>
-<p>A segurança de imagens Docker é fundamental em ambientes de contêineres porque imagens corrompidas ou comprometidas podem resultar em consequências extremamente graves, ameaçando a estabilidade e a integridade de sistemas inteiros. As ameaças que pairam sobre imagens Docker são variadas e abrangentes.</p>
+<p>Docker image security is critical in containerized environments because corrupted or compromised images can have extremely serious consequences, threatening the stability and integrity of entire systems. The threats targeting Docker images are varied and extensive.</p>
 <ol>
-<li><strong>Imagens Maliciosas</strong>: Uma das ameaças mais comuns é a possibilidade de imagens Docker maliciosas. Isso ocorre quando uma imagem foi projetada para explorar vulnerabilidades ou abrir portas para ataques. Essas imagens podem ser distribuídas de maneira enganosa, muitas vezes disfarçadas como recursos legítimos ou populares.</li>
-<li><strong>Vulnerabilidades Não Corrigidas</strong>: Outro grande risco reside nas vulnerabilidades não corrigidas presentes nas imagens Docker. Uma imagem pode conter componentes desatualizados ou vulnerabilidades conhecidas que podem ser exploradas por atacantes para obter acesso não autorizado ou comprometer a integridade do sistema. A falta de gerenciamento de patches e atualizações regulares torna a infraestrutura vulnerável a esses tipos de ameaças.</li>
-<li><strong>Ataques de Supply Chain</strong>: Os ataques de supply chain têm se tornado uma preocupação crescente. Nesses casos, os atacantes comprometem o processo de construção e distribuição de imagens Docker legítimas.</li>
+<li>
+<p><strong>Malicious Images:</strong> One of the most common threats is the possibility of malicious Docker images. This occurs when an image is designed to exploit vulnerabilities or open doors for attacks. Such images can be deceptively distributed, often disguised as legitimate or popular resources.</p>
+</li>
+<li>
+<p><strong>Unpatched Vulnerabilities:</strong> Another major risk lies in unpatched vulnerabilities present in Docker images. An image may contain outdated components or known vulnerabilities that attackers can exploit to gain unauthorized access or compromise system integrity. Lack of regular patch management and updates makes infrastructure vulnerable to these types of threats.</p>
+</li>
+<li>
+<p><strong>Supply Chain Attacks:</strong> Supply chain attacks have become a growing concern. In these cases, attackers compromise the process of building and distributing legitimate Docker images.</p>
+</li>
 </ol>
-<p>A compreensão dessas ameaças é essencial pois a segurança de imagens Docker não é apenas uma preocupação técnica, mas também uma questão crítica de proteção de dados e continuidade dos negócios. É por isso que ferramentas como o Cosign e o Trivy desempenham um papel crucial na mitigação dessas ameaças.</p>
+<p>Understanding these threats is essential because Docker image security is not only a technical concern but also a critical matter of data protection and business continuity. This is why tools like <strong>Cosign</strong> and <strong>Trivy</strong> play a crucial role in mitigating these risks.</p>
 <hr>
 <ul>
-<li><strong><em>O que é o Cosign?</em></strong></li>
+<li><strong>What is Cosign?</strong></li>
 </ul>
-<p>O Cosign é uma ferramenta de assinatura digital que fornece autenticação e verificação de imagens Docker. Ele permite que você assine imagens com chaves de segurança, garantindo que apenas imagens autenticadas e confiáveis sejam implantadas em seu ambiente.</p>
+<p>Cosign is a digital signing tool that provides authentication and verification for Docker images. It allows you to sign images with security keys, ensuring that only authenticated and trusted images are deployed in your environment.</p>
 <ul>
-<li><strong><em>Benefícios do Uso do Cosign</em></strong></li>
+<li><strong>Benefits of Using Cosign</strong></li>
 </ul>
-<p>Ao adotar o Cosign, você pode garantir que suas imagens Docker sejam provenientes de fontes confiáveis. Isso protege contra a implantação de imagens falsificadas ou comprometidas. Além disso, o Cosign fornece uma camada adicional de segurança, ajudando a manter sua infraestrutura segura e confiável.</p>
+<p>By adopting Cosign, you can ensure that your Docker images come from trusted sources. This protects against deploying forged or compromised images. Additionally, Cosign provides an extra layer of security, helping to keep your infrastructure safe and reliable.</p>
 <hr>
 <ul>
-<li><strong><em>Como Começar com o Cosign</em></strong></li>
+<li><strong>Getting Started with Cosign</strong></li>
 </ul>
-<p>Para começar a usar o Cosign, você pode seguir estas etapas simples.</p>
-<p>Instale o Cosign em seu ambiente.</p>
+<p>To start using Cosign, you can follow these simple steps:</p>
+<p>Install Cosign in your environment.</p>
 <ul>
 <li><strong>MacOS</strong></li>
 </ul>
@@ -248,40 +278,44 @@ Neste artigo, vamos verificar como podemos utilizar soluções para proteger sua
 </span></span><span class="line"><span class="cl"><span class="nv">LATEST_VERSION</span><span class="o">=</span><span class="k">$(</span>curl https://api.github.com/repos/sigstore/cosign/releases/latest <span class="p">|</span> grep tag_name <span class="p">|</span> cut -d : -f2 <span class="p">|</span> tr -d <span class="s2">&#34;v\&#34;, &#34;</span><span class="k">)</span>
 </span></span><span class="line"><span class="cl">curl -O -L <span class="s2">&#34;https://github.com/sigstore/cosign/releases/latest/download/cosign_</span><span class="si">${</span><span class="nv">LATEST_VERSION</span><span class="si">}</span><span class="s2">_amd64.deb&#34;</span>
 </span></span><span class="line"><span class="cl">dpkg -i cosign_<span class="si">${</span><span class="nv">LATEST_VERSION</span><span class="si">}</span>_amd64.deb
-</span></span></code></pre></div><p>Em seguida, gere um par de chaves. *Guarde sua chave .key ela é de extrema importancia para assinar suas imagens.</p>
+</span></span></code></pre></div><p>Next, generate a key pair. Keep your <code>.key</code> file safe as it is extramely important for signing your images.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign generate-key-pair
-</span></span></code></pre></div><p>Finalmente, assine suas imagens Docker com o Cosign usando o comando</p>
+</span></span></code></pre></div><p>Finally, sign your Docker images with Cosign using the command below:</p>
 <ul>
-<li>Altere o cosign.key para o nome da sua chave</li>
-<li>Altere o repositorio para o seu no DockerHub por exemplo</li>
-<li>Altere imagem e tag para as imagens que existe no seu repositorio.</li>
+<li>Replace cosign.key with the name of your key</li>
+<li>Replace repository with your repository (for example, on <strong>DockerHub</strong>)</li>
+<li>Replace image and tag with the image and tag that exist in your repository</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign sign --key cosign.key repositorio/imagem:tag
-</span></span></code></pre></div><p>e para verificar alguma imagem assinada docker</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign verify --key cosign.pub repositorio/imagem:tag
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign sign --key cosign.key repo/image:tag
+</span></span></code></pre></div><p>And to verify a signed Docker image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">cosign verify --key cosign.pub repo/image:tag
 </span></span></code></pre></div><blockquote>
-<p>[!info] a chave publica pode ser compartilhada para que outras pessoas verifiquem a autenticidade da sua imagem.</p></blockquote>
+<p>[!info] The <code>cosign.pub</code> file is the public key generated when you created the key pair. It is used to verify the authenticity of the signed image and you can share it with anyone who needs to verify the image.</p></blockquote>
 <hr>
 <ul>
-<li><strong><em>Melhores Práticas de Segurança</em></strong></li>
+<li><strong><em>Security Best Practices</em></strong></li>
 </ul>
-<p>Além de usar o Cosign, é fundamental incorporar uma verificação de vulnerabilidades em suas imagens Docker. Como mensionado anteriormente uma ferramenta valiosa para essa finalidade é o Trivy. O Trivy examina imagens de contêineres em busca de vulnerabilidades conhecidas e fornece informações detalhadas sobre qualquer risco potencial. Ele pode ser integrado facilmente aos seus pipelines de CI/CD para garantir que apenas imagens seguras sejam implantadas.</p>
-<p>Para começar com o Trivy, você pode instalá-lo</p>
+<p>In addition to using Cosign, it is essential to incorporate vulnerability scanning into your Docker images. As mentioned earlier, a valuable tool for this purpose is <strong>Trivy</strong>. Trivy scans container images for known vulnerabilities and provides detailed information about any potential risks. It can be easily integrated into your CI/CD pipelines to ensure that only secure images are deployed.</p>
+<p>To get started with Trivy, you can install it on:</p>
 <ul>
 <li>MacOs</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">brew install trivy
-</span></span></code></pre></div><p>Ubuntu</p>
+</span></span></code></pre></div><ul>
+<li>Ubuntu</li>
+</ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">wget https://github.com/aquasecurity/trivy/releases/download/v0.45.0/trivy_0.45.0_Linux-64bit.deb
 </span></span><span class="line"><span class="cl">sudo dpkg -i trivy_0.45.0_Linux-64bit.deb
-</span></span></code></pre></div><p>Para fazer o scan nas suas imagens utilize</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">trivy image name_of_image:tag
-</span></span></code></pre></div><p>A ferramenta verificará as camadas da imagem em busca de vulnerabilidades e fornecerá uma lista de quaisquer problemas encontrados. Isso permite que você tome medidas proativas para corrigir vulnerabilidades ou escolher imagens mais seguras.</p>
-<p>Lembre-se de que a segurança é um processo contínuo. Portanto, agendar verificações regulares com o Trivy é uma prática recomendada para garantir que suas imagens Docker permaneçam protegidas ao longo do tempo.</p>
-<ul>
-<li><strong><em>Conclusão</em></strong></li>
+</span></span></code></pre></div><ul>
+<li>For make the scan on your images use</li>
 </ul>
-<p>Em resumo, o uso do Cosign e do Trivy em conjunto pode fortalecer significativamente a segurança de suas imagens Docker. Ao adotar essas melhores práticas, você pode proteger sua organização contra ameaçass, garantindo que suas imagens sejam autênticas e tendo as vulnerabilidades mitigadas.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">trivy image name_of_image:tag
+</span></span></code></pre></div><p>The tool will scan the image layers for vulnerabilities and provide a list of any issues found. This allows you to take proactive measures to fix vulnerabilities or choose safer images.</p>
+<p>Remember that security is an ongoing process. Scheduling regular scans with Trivy is therefore a recommended practice to ensure that your Docker images remain protected over time.</p>
+<ul>
+<li>Conclusion</li>
+</ul>
+<p>In summary, using Cosign and Trivy together can significantly strengthen the security of your Docker images. By adopting these best practices, you can protect your organization against threats, ensuring that your images are authentic and that vulnerabilities are mitigated.</p>
 
       </div>
 

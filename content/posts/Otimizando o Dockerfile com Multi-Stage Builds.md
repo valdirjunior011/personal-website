@@ -1,28 +1,36 @@
++++
+author = ["Valdir Junior"]
+title = "Dockerfile using Multi-Stage Builds and Secure Images"
+date = "2024-02-02"
+description = "Otimizing Dockerfile with Multi-Stage Builds and Secure Images using Chainguard"
+tags = ["Docker", "Multi-Stage Builds", "Chainguard", "Segurança"]
+categories = ["DevOps", "Containers", "Linux"]
++++
 
 ![](https://media.licdn.com/dms/image/v2/D4E12AQFiVMmK1xCdPA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1693653766393?e=1758758400&v=beta&t=Bn7TSy9VPWrDtZ0sT9O2sPazDNEfMBP7Kwz8AT67IKw)
 
-Um dos desafios ao trabalhar com Docker é criar imagens eficientes em termos de tamanho e, ao mesmo tempo, garantir a segurança do conteúdo dessas imagens. Este artigo mostrará uma opção como otimizar o Dockerfile usando Multi-Stage Builds e como a ferramenta Chainguard pode ser usada para garantir a segurança das imagens Docker.
+One of the challenges when working with Docker is creating images that are both size-efficient and secure. This article will show an option for optimizing your Dockerfile using Multi-Stage Builds and how the Chainguard tool can be used to ensure Docker image security.
 
 ---
 
-- **Otimização com Multi-Stage Builds**
+- **Optimization with Multi-Stage Builds**
 
-Multi-Stage Builds é uma técnica avançada no Docker que permite criar imagens mais eficientes e menores em tamanho. A ideia básica é dividir a construção da imagem em várias etapas, chamadas de "estágios", cada uma com seu próprio ambiente de construção. Isso é particularmente útil quando você precisa compilar código-fonte ou realizar outras tarefas complexas durante a construção da imagem.
+Multi-Stage Builds is an advanced Docker technique that allows you to create smaller, more efficient images. The basic idea is to split the image build into multiple stages, each with its own build environment. This is especially useful when you need to compile source code or perform other complex tasks during the image build process.
 
-- **Como Funcionam as Camadas**
+- **How Layers Work**
 
-Antes de explorarmos o Multi-Stage Builds, é importante entender como funcionam as camadas em um Dockerfile. Cada instrução em um Dockerfile cria uma nova camada na imagem. As camadas são armazenadas em cache, o que significa que, se você não alterar uma instrução em um Dockerfile, o Docker reutilizará a camada armazenada em cache, economizando tempo e espaço em disco.
+Before diving into Multi-Stage Builds, it’s important to understand how layers work in a Dockerfile. Each instruction in a Dockerfile creates a new layer in the image. Layers are cached, which means that if you don’t change an instruction in the Dockerfile, Docker will reuse the cached layer, saving time and disk space.
 
-No entanto, cada camada adiciona tamanho à imagem final. Isso é importante porque imagens grandes podem ser problemáticas em ambientes com recursos limitados e podem tornar a distribuição mais lenta.
+However, each layer adds size to the final image. This is important because large images can be problematic in resource-constrained environments and can slow down distribution.
 
----
+___
 
-- **Exemplo de Multi-Stage Build**
+- **Multi-Stage Build Example**
 
-Um exemplo simples de Multi-Stage Build para uma aplicação Node.js:
+A simple example of a Multi-Stage Build for a Node.js application:
 
-```zsh
-# Estágio 1: Construir a aplicação
+```Dockerfile
+# Stage 1: Build the application
 FROM node:14 as builder
 WORKDIR /app
 COPY package*.json ./
@@ -30,28 +38,28 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Estágio 2: Criar uma imagem final menor
+# Stage 2: Create a smaller final image
 FROM nginx:alpine
 COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-Neste exemplo:
+In this example:
 
-1. **Estágio 1:** constrói a aplicação Node.js e cria uma imagem temporária com todas as dependências de construção.
-2. **Estágio 2:** criamos uma imagem final menor usando nginx:alpine e copiamos apenas o resultado da compilação da aplicação, economizando espaço.
+1. **Stage 1:** Builds the Node.js application and creates a temporary image with all build dependencies.
+2. **Stage 2:** Creates a smaller final image using nginx:alpine and copies only the compiled application output, saving space.
 
-Então basicamente temos duas diferenças:
+So basically we have two differences:
 
-1. **Sem Multi-Stage Builds:** Uma imagem que inclui todas as dependências de compilação e artefatos de construção pode facilmente crescer para vários gigabytes, tornando-a pesada e demorada para distribuir.
-2. **Com Multi-Stage Builds:** O uso de estágios intermediários resulta em uma imagem final muito menor, contendo apenas o que é necessário para executar a aplicação. Isso pode reduzir o tamanho da imagem final para dezenas de megabytes.
+1. **Without Multi-Stage Builds:** An image including all build dependencies and artifacts can easily grow to several gigabytes, making it heavy and slow to distribute.
+2. **With Multi-Stage Builds:** Using intermediate stages results in a much smaller final image containing only what’s necessary to run the application. This can reduce the final image size to tens of megabytes.
 
----
+___
 
-- **Imagens base Seguras com Chainguard**
+- **Secure Base Images with Chainguard**
 
-Agora que sabemos como otimizar nossos Dockerfiles e vamos sempre abordar a questão da segurança das imagens Docker e desta vez com Chainguard. A Chainguard Images é uma extensão poderosa do Chainguard que oferece maior eficaz a segurança das imagens.
+Now that we know how to optimize our Dockerfiles, we should also address Docker image security, this time using Chainguard. Chainguard Images is a powerful extension that enhances image security effectively.
 
 ![Article content](https://media.licdn.com/dms/image/v2/D4E12AQEuRTRHiypjig/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1693673715207?e=1758758400&v=beta&t=Gmbjzj2PAF4OsnV4QyeHwM6VpCnoxuA4-6RQ8OpJBls)
 
@@ -59,30 +67,30 @@ https://www.chainguard.dev/chainguard-images
 
 - **Chainguard Images**
 
-As imagens Chainguard contêm apenas o que é necessário para construir ou executar seu aplicativo, proporcionando, em média, uma redução de 80% no tamanho e menos CVEs.
+Chainguard images contain only what is necessary to build or run your application, providing on average an 80% reduction in size and fewer CVEs.
 
-1. **Imagens geradas diariamente:** Garantia que as imagens estejam atualizadas e incluam patches de segurança disponíveis.
-2. **Assinado por Sigstore/Cosign:** Imagens assinada criptograficamente para prova de origem e garantias anti-adulteração.
-3. **SBOM:** SBOMs zerados atestando a procedência de todos os artefatos.
+1. **Daily-built images:** Ensures that images are up-to-date and include available security patches.
+2. **Signed by Sigstore/Cosign:** Images are cryptographically signed to prove origin and provide tamper-proof guarantees.
+3. **SBOM:** Zeroed SBOMs certifying the provenance of all artifacts.
 
 ---
 
-- **Utilizando Docker History para Ver Camadas**
+- **Using Docker History to View Layers**
 
-Como mencionamos camadas anteriormente um comando excelente que temos para ver as camadas de uma imagem Docker, é o comando **_docker history_**.
+As we mentioned earlier about layers, an excellent command to inspect the layers of a Docker image is **docker history**.
 
-como utilizar:
+How to use it:
 
 ```zsh
-docker history minha-imagem:latest
+docker history my-image:latest
 ```
 
-Isso exibirá uma lista de todas as camadas que compõem a imagem, juntamente com seus IDs, tamanhos e instruções correspondentes no Dockerfile.
+This will display a list of all the layers that make up the image, along with their IDs, sizes, and corresponding instructions from the Dockerfile.
 
-> [!tldr] O comando docker history é útil para entender como uma imagem foi construída, quais comandos foram executados em cada camada e o tamanho de cada camada. Isso pode ser útil para otimizar o tamanho das imagens Docker e entender como elas foram criadas.
+> [!tldr] The docker history command is useful for understanding how an image was built, which commands were executed in each layer, and the size of each layer. This can help optimize Docker image size and understand how images were created.
 
-### Conclusão
+### **Conclusion**
 
-O uso de Multi-Stage Builds no Dockerfile permite criar imagens menores e mais eficientes, reduzindo significativamente o tamanho das imagens finais. Isso é crucial para a eficiência na distribuição e implantação de contêineres. Além disso, utilizando imagens da Chainguard ajuda a garantir a segurança das imagens Docker, verificando a origem e a integridade de cada camada.
+Using Multi-Stage Builds in a Dockerfile allows you to create smaller, more efficient images, significantly reducing the final image size. This is crucial for efficient container distribution and deployment. Additionally, using Chainguard images helps ensure Docker image security by verifying the origin and integrity of each layer.
 
-Ao combinar essas práticas, você pode criar imagens Docker mais seguras e eficientes, melhorando tanto o desempenho quanto a confiabilidade de suas aplicações contêinerizadas.
+By combining these practices, you can create Docker images that are both more secure and efficient, improving the performance and reliability of your containerized applications.
