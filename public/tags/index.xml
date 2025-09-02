@@ -16,7 +16,7 @@
       <description></description>
     </item>
     <item>
-      <title>Devops</title>
+      <title>DevOps</title>
       <link>http://localhost:1313/tags/devops/</link>
       <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/devops/</guid>
@@ -51,6 +51,20 @@
       <description></description>
     </item>
     <item>
+      <title>Chainguard</title>
+      <link>http://localhost:1313/tags/chainguard/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/chainguard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cosign</title>
+      <link>http://localhost:1313/tags/cosign/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cosign/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Distroless</title>
       <link>http://localhost:1313/tags/distroless/</link>
       <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
@@ -65,17 +79,59 @@
       <description></description>
     </item>
     <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Stage Builds</title>
+      <link>http://localhost:1313/tags/multi-stage-builds/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/multi-stage-builds/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rede Docker</title>
+      <link>http://localhost:1313/tags/rede-docker/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rede-docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Segurança</title>
+      <link>http://localhost:1313/tags/seguran%C3%A7a/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/seguran%C3%A7a/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trivy</title>
+      <link>http://localhost:1313/tags/trivy/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/trivy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>http://localhost:1313/tags/troubleshooting/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>CGroups</title>
       <link>http://localhost:1313/tags/cgroups/</link>
       <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/cgroups/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
-      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
     </item>
     <item>
