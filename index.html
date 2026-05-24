@@ -1,119 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Valdir Junior - IT Manager & Corporate IT Leader</title>
-<meta name="description" content="Valdir Junior – Head of IT specializing in Scalable Architecture and Global Operations." />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Valdir Junior — IT Engineering Manager, Corporate IT Leader</title>
+<meta name="description" content="Valdir Junior — Engineering Manager, IT Infrastructure. Building enterprise-grade foundations with lean, agile teams inside fast-scaling companies."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
 <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0c0c0b;
+  --ink-60: rgba(12,12,11,0.6);
+  --ink-25: rgba(12,12,11,0.25);
+  --ink-10: rgba(12,12,11,0.1);
+  --paper: #f4f1eb;
+  --paper-warm: #ede9e0;
+  --rust: #b84a1e;
+  --rust-light: #f2ddd4;
+  --gold: #9a7220;
+  --rule: rgba(12,12,11,0.13);
+}
+
+html { scroll-behavior: smooth; }
+
 body {
-margin: 0;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-background: #ffffff;
-color: #111827;
-line-height: 1.6;
+  font-family: 'Syne', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.container {
-max-width: 960px;
-margin: 0 auto;
-padding: 4rem 2rem;
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-h1 {
-font-size: 2.75rem;
-font-weight: 800;
-margin-bottom: 0.5rem;
-letter-spacing: -0.025em;
+.fade { opacity: 0; animation: fadeUp 0.65s ease forwards; }
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.35s; }
+.d4 { animation-delay: 0.5s; }
+.d5 { animation-delay: 0.65s; }
+.d6 { animation-delay: 0.8s; }
+.d7 { animation-delay: 0.95s; }
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(244,241,235,0.93);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
 }
-h2 {
-font-size: 1.5rem;
-margin-top: 3rem;
-margin-bottom: 1rem;
-text-transform: uppercase;
-letter-spacing: 0.05em;
-color: #374151;
+.nav-inner {
+  max-width: 980px; margin: 0 auto; padding: 0 2.5rem;
+  height: 52px; display: flex; align-items: center; justify-content: space-between;
 }
-p {
-max-width: 720px;
-font-size: 1.1rem;
+.nav-name { font-weight: 800; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-60); text-decoration: none; transition: color 0.2s;
 }
-.subtitle {
-font-size: 1.25rem;
-color: #2563eb;
-font-weight: 600;
-margin-bottom: 2rem;
+.nav-links a:hover { color: var(--ink); }
+
+/* HERO */
+.hero { padding: 128px 0 64px; border-bottom: 1px solid var(--rule); }
+.hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; }
+.eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--rust); margin-bottom: 1rem;
 }
-ul {
-padding-left: 1.2rem;
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
 }
-li {
-margin-bottom: 0.75rem;
+.hero-name em { font-style: italic; font-weight: 600; color: var(--gold); }
+.hero-right { text-align: right; padding-bottom: 0.5rem; }
+.hero-right .loc {
+  font-size: 11px; font-weight: 400; color: var(--ink-60); line-height: 2; margin-bottom: 1rem;
 }
-.highlight {
-background: #f9fafb;
-padding: 2rem;
-border-left: 5px solid #111827;
-margin: 2.5rem 0;
+.hero-right a {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 1px; transition: color 0.2s, border-color 0.2s;
 }
-.footer {
-margin-top: 4rem;
-font-size: 0.9rem;
-color: #6b7280;
-border-top: 1px solid #e5e7eb;
-padding-top: 2rem;
+.hero-right a:hover { color: var(--rust); border-color: var(--rust); }
+
+/* POSITIONING STATEMENT */
+.position-strip {
+  padding: 3.5rem 0;
+  display: grid; grid-template-columns: 180px 1fr; gap: 4rem;
+  border-bottom: 1px solid var(--rule); align-items: start;
 }
-a {
-color: #2563eb;
-text-decoration: none;
-font-weight: 600;
+.strip-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-60); padding-top: 0.4rem;
 }
-a:hover {
-text-decoration: underline;
+.position-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 600; line-height: 1.48; color: var(--ink);
 }
-strong {
-color: #111827;
+.position-text em { font-style: italic; color: var(--gold); }
+
+/* DARK BAR */
+.dark-bar {
+  background: var(--ink); padding: 2.2rem 2.8rem;
+  display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center;
+}
+.dark-bar-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--rust); writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;
+}
+.dark-bar-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 600; line-height: 1.5; color: #f4f1eb;
+}
+.dark-bar-text em { font-style: italic; color: rgba(244,241,235,0.5); }
+
+/* METRICS */
+.metrics-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--rule);
+}
+.metric {
+  padding: 2.8rem 1.5rem 2.2rem; border-right: 1px solid var(--rule); text-align: center;
+}
+.metric:last-child { border-right: none; }
+.metric-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem; font-weight: 700; line-height: 1;
+  color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.5rem;
+}
+.metric-num sup {
+  font-size: 1rem; font-family: 'Syne', sans-serif; font-weight: 400;
+  vertical-align: super; color: var(--rust); letter-spacing: 0;
+}
+.metric-label { font-size: 10.5px; font-weight: 400; color: var(--ink-60); line-height: 1.55; }
+
+/* SECTIONS */
+section { border-bottom: 1px solid var(--rule); }
+.section-inner { padding: 3.8rem 0; }
+.section-head {
+  display: grid; grid-template-columns: 180px 1fr; gap: 4rem; margin-bottom: 2.2rem;
+}
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-60); padding-top: 0.3rem;
+}
+
+/* EXPERIENCE */
+.exp-item {
+  display: grid; grid-template-columns: 180px 1fr; gap: 4rem;
+  padding: 2.2rem 0; border-top: 1px solid var(--rule);
+}
+.exp-item:first-child { border-top: none; }
+.exp-period { font-size: 11px; font-weight: 500; color: var(--ink-60); margin-bottom: 0.3rem; }
+.exp-company {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink); margin-bottom: 0.2rem;
+}
+.exp-location { font-size: 10px; color: var(--ink-60); }
+.exp-role {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.7rem; line-height: 1.2;
+}
+.current-badge {
+  display: inline-block; font-family: 'Syne', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--rust-light); color: var(--rust);
+  padding: 2px 8px; margin-left: 8px; vertical-align: middle; position: relative; top: -3px;
+}
+.exp-desc { font-size: 13px; color: var(--ink-60); line-height: 1.7; margin-bottom: 1rem; }
+.exp-bullets { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.exp-bullets li {
+  font-size: 13px; color: var(--ink-60); line-height: 1.6;
+  padding-left: 1.1rem; position: relative;
+}
+.exp-bullets li::before {
+  content: '—'; position: absolute; left: 0; color: var(--rust); font-size: 11px;
+}
+.exp-bullets li strong { color: var(--ink); font-weight: 700; }
+
+/* FOCUS TWO-COL */
+.focus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.focus-col:first-child { padding-right: 3rem; border-right: 1px solid var(--rule); }
+.focus-col:last-child { padding-left: 3rem; }
+.focus-col-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-60); margin-bottom: 1.8rem; padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--rule);
+}
+.focus-item { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+.focus-item:last-child { border-bottom: none; }
+.focus-name {
+  font-size: 13px; font-weight: 700; color: var(--ink);
+  margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.6rem;
+}
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rust); flex-shrink: 0; }
+.focus-desc { font-size: 12.5px; color: var(--ink-60); line-height: 1.55; padding-left: 0.9rem; }
+
+/* TECH */
+.tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; }
+.tech-cluster-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--rust); margin-bottom: 0.8rem;
+}
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tech-tag {
+  font-size: 11px; font-weight: 500; color: var(--ink);
+  background: var(--paper-warm); border: 1px solid var(--rule);
+  padding: 3px 9px; transition: background 0.15s, border-color 0.15s;
+}
+.tech-tag:hover { background: var(--rust-light); border-color: rgba(184,74,30,0.25); }
+
+/* LANGUAGES */
+.lang-row { display: flex; gap: 3rem; flex-wrap: wrap; }
+.lang-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 0.15rem; }
+.lang-level { font-size: 11px; color: var(--ink-60); }
+
+/* FOOTER */
+footer { padding: 2.5rem 0 3.5rem; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 11px; color: var(--ink-60); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--rust); border-color: var(--rust); }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .wrap { padding: 0 1.4rem; }
+  .nav-links { display: none; }
+  .hero-grid,
+  .position-strip,
+  .section-head,
+  .exp-item { grid-template-columns: 1fr; gap: 0.6rem; }
+  .hero-right { text-align: left; margin-top: 1rem; }
+  .metrics-grid { grid-template-columns: repeat(2,1fr); }
+  .metric:nth-child(2) { border-right: none; }
+  .metric:nth-child(3),
+  .metric:nth-child(4) { border-top: 1px solid var(--rule); }
+  .metric:nth-child(4) { border-right: none; }
+  .focus-grid { grid-template-columns: 1fr; }
+  .focus-col:first-child { padding-right: 0; border-right: none; border-bottom: 1px solid var(--rule); padding-bottom: 2rem; }
+  .focus-col:last-child { padding-left: 0; padding-top: 2rem; }
+  .tech-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .dark-bar { grid-template-columns: 1fr; }
+  .dark-bar-tag { writing-mode: horizontal-tb; transform: none; }
+  .footer-inner { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Valdir Junior</h1>
-<div class="subtitle">IT Manager & Corporate IT Leader</div>
 
-<p>
-Architect of resilient, high-availability IT ecosystems with 15+ years of experience engineering secure and scalable global infrastructures. I specialize in aligning technical debt reduction with EBITDA goals.
-</p>
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Valdir Junior</span>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#focus">Focus</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-<div class="highlight">
-<strong>The Executive Mission:</strong><br />
-I bridge the gap between <strong>CISO security mandates</strong> and <strong>CFO fiscal targets</strong> by delivering 99.99% uptime through automation-first management and strategic infrastructure modernization.
+<div class="wrap">
+
+  <div class="hero fade d1">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Engineering Manager, IT Infrastructure</p>
+        <h1 class="hero-name">Valdir<br/><em>Junior</em></h1>
+      </div>
+      <div class="hero-right">
+        <p class="loc">
+          ARX Robotics · Heidenheim, Germany<br/>
+          15+ years · Brazil → US → Germany<br/>
+          +49 (0152) 21346457
+        </p>
+        <a href="https://www.linkedin.com/in/valdirjunior011" target="_blank">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-strip fade d2">
+    <span class="strip-label">Positioning</span>
+    <p class="position-text">
+      Transforming <em>fast-scaling infrastructure</em> into secure, high-availability IT ecosystems —
+      aligning lean operational budgets with rapid engineering velocity and Zero Trust security
+      to build foundations that outlast the team size.
+    </p>
+  </div>
+
 </div>
 
-<h2>Strategic Focus</h2>
-<ul>
-<li><strong>Infrastructure Modernization:</strong> Transitioning legacy systems into secure, reliable, and cost-efficient cloud-native platforms.</li>
-<li><strong>IT Strategy & Governance:</strong> Driving business-aligned roadmaps that ensure sustainable growth and operational maturity.</li>
-<li><strong>Zero Trust & Security:</strong> Implementing identity-centric security frameworks (Okta/IAM) that reduce risk without slowing engineering velocity.</li>
-<li><strong>Operational Resilience:</strong> Building multi-cloud disaster recovery (AWS/Azure/GCP) to guarantee zero-loss business continuity.</li>
-<li><strong>Scalable Leadership:</strong> Managing global budgets and high-performing teams to reclaim developer productivity through automation.</li>
-</ul>
-
-<h2>Proven Impact</h2>
-<ul>
-<li><strong>Scale:</strong> Directed global IT operations for 2,500+ users across 10+ countries.</li>
-<li><strong>Efficiency:</strong> Delivered 25% OpEx savings through aggressive SaaS optimization and automation.</li>
-<li><strong>Reliability:</strong> Architected environments delivering 99.99% uptime and 60% reduction in RTO.</li>
-<li><strong>Velocity:</strong> Modernized engineering toolchains (Atlassian/Slack EKM), boosting team efficiency by 30%.</li>
-</ul>
-
-<h2>Connect</h2>
-<p>
-<a href="https://www.linkedin.com/in/valdirjunior011" target="_blank">LinkedIn</a><br />
-<a href="mailto:contact@valdirjunior.win">contact@valdirjunior.win</a>
-</p>
-
-<div class="footer">
-© Valdir Junior — Global IT Infrastructure & IT Corporate Leadership
+<div class="dark-bar fade d3">
+  <span class="dark-bar-tag">The real strength</span>
+  <p class="dark-bar-text">
+    Enterprise-grade reliability on a <em>scale-up budget</em> —
+    taking messy, growing IT environments and building automated, rock-solid infrastructure
+    that looks like it cost five times as much to build.
+  </p>
 </div>
+
+<div class="wrap">
+
+<div class="metrics-grid fade d3">
+  <div class="metric">
+    <div class="metric-num">15<sup>+</sup></div>
+    <div class="metric-label">Years in global<br/>IT operations</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">100<sup>%</sup></div>
+    <div class="metric-label">Applications on SSO<br/>via Okta at ARX</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">25<sup>%</sup></div>
+    <div class="metric-label">OpEx reduction through<br/>SaaS consolidation</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">4K<sup>+</sup></div>
+    <div class="metric-label">Mailboxes migrated<br/>Exchange → O365</div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade d4">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-label">Experience</span>
+      <div></div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-period">01/2026 — Present</div>
+        <div class="exp-company">ARX Robotics</div>
+        <div class="exp-location">Germany</div>
+      </div>
+      <div>
+        <div class="exp-role">Engineering Manager, IT Infrastructure <span class="current-badge">Now</span></div>
+        <p class="exp-desc">Leads and scales global IT operations inside a fast-growing robotics company. Manages a team of 6 engineers (service desk to senior sysadmin) plus external vendors and MSPs, with full ownership of budget, hiring, and team development.</p>
+        <ul class="exp-bullets">
+          <li><strong>Architected the 2026 IT modernization roadmap</strong> — migrated legacy platforms to Google Workspace and achieved 100% Okta SSO compliance across all global assets with zero operational downtime</li>
+          <li><strong>Reduced IT costs measurably</strong> by auditing and eliminating redundant, overpriced SaaS tooling and consolidating vendor contracts</li>
+          <li>Deployed cross-platform MDM supporting all major operating systems, improving device security and onboarding speed at scale</li>
+          <li>Full accountability for service availability, security posture, compliance, audits, and SLA adherence across international teams</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-period">11/2023 — 12/2025</div>
+        <div class="exp-company">Fernride</div>
+        <div class="exp-location">Germany</div>
+      </div>
+      <div>
+        <div class="exp-role">IT Services Manager</div>
+        <p class="exp-desc">Built and ran IT operations for an autonomous driving scale-up. Led the full migration from Microsoft to Google Workspace, implemented JumpCloud MDM, and established automated infrastructure practices from the ground up.</p>
+        <ul class="exp-bullets">
+          <li><strong>Built full observability stack</strong> with Prometheus, Grafana, and Graylog — delivering real-time infrastructure visibility and centralized log management</li>
+          <li>Automated all on-prem workstation and AWS EC2 management with Ansible; maintained infrastructure consistency with Terraform across AWS and Azure</li>
+          <li>Managed Sophos security environment; integrated site-to-site connections between AWS and Azure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-period">06/2022 — 11/2023</div>
+        <div class="exp-company">Voith Group</div>
+        <div class="exp-location">Germany</div>
+      </div>
+      <div>
+        <div class="exp-role">Sr. System Engineer</div>
+        <p class="exp-desc">Managed enterprise-scale IT infrastructure for the EMEA region at one of Germany's largest industrial groups — HPE Synergy, OneView, Citrix, IBM storage, SAN, and Commvault in a demanding global environment.</p>
+        <ul class="exp-bullets">
+          <li>Authored PowerShell and Bash automation scripts across Hyper-V and SCCM environments</li>
+          <li>Supported new infrastructure projects for Latin America via Azure DevOps</li>
+          <li>Level 3 contributor to the global database team (Oracle and SQL)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-period">09/2021 — 06/2022</div>
+        <div class="exp-company">Pinterest (via Milestone)</div>
+        <div class="exp-location">United States</div>
+      </div>
+      <div>
+        <div class="exp-role">VDI Engineer</div>
+        <p class="exp-desc">Deployed and managed global VDI infrastructure for Pinterest, delivering a highly available and secure platform for external partners across APAC, EMEA, and the Americas.</p>
+        <ul class="exp-bullets">
+          <li>Managed Nutanix services globally; participated in cross-regional engineering sessions with APAC and EMEA teams</li>
+          <li>Built CI/CD automation scripts on Chef and Jenkins; created Terraform deployment plans on AWS and managed VPC security</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-period">02/2020 — 10/2021</div>
+        <div class="exp-company">Voith Group</div>
+        <div class="exp-location">Brazil</div>
+      </div>
+      <div>
+        <div class="exp-role">Sr. System Administrator</div>
+        <ul class="exp-bullets">
+          <li>Implemented PRTG monitoring for 2,000+ devices across Latin America</li>
+          <li>Managed LATAM Citrix applications, VDI infrastructure, SCCM, and Hyper-V</li>
+          <li>Migrated local backups to AWS S3 via Commvault; provisioned infrastructure with Terraform and Ansible</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-period">2015 — 2020</div>
+        <div class="exp-company">Earlier roles — Brazil</div>
+        <div class="exp-location">Norte Cred · SR Consulting · Lan Designer · Clareza · IPEPO</div>
+      </div>
+      <div>
+        <div class="exp-role">Infrastructure Coordinator · Network Administrator · Network Analyst</div>
+        <ul class="exp-bullets">
+          <li><strong>Led 7-month Exchange → Office 365 migration for 4,000+ mailboxes</strong> at Lan Designer — recognized internally as a Microsoft Success Case</li>
+          <li>Migrated 2 TB file server from Netapp to FreeNAS in 2 months — improving performance and significantly reducing licensing cost</li>
+          <li>Full VMware-to-Citrix migration with high availability and disaster recovery, delivered on time and under budget</li>
+          <li>Progressed from Level 3 network analyst to infrastructure team leadership, managing up to 10 analysts during major migration projects</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOCUS -->
+<section id="focus" class="fade d5">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-label">Strategic focus</span>
+      <div></div>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-col">
+        <div class="focus-col-label">Leadership</div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>IT Management in scale-ups</div>
+          <p class="focus-desc">Building lean IT teams with senior-level output. Budget ownership, vendor governance, and SLA accountability without the enterprise headcount.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>IT Strategy &amp; roadmaps</div>
+          <p class="focus-desc">Translating engineering decisions into business outcomes — aligning infrastructure investment with growth targets and operational maturity milestones.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>Vendor consolidation</div>
+          <p class="focus-desc">Auditing SaaS sprawl, renegotiating contracts, and removing redundant tooling to drive measurable OpEx reduction in the first 90 days.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>Zero Trust &amp; Identity</div>
+          <p class="focus-desc">Okta/IAM-centric security frameworks. 100% SSO coverage as the baseline, not the goal — tightening access without slowing engineering velocity.</p>
+        </div>
+      </div>
+      <div class="focus-col">
+        <div class="focus-col-label">Technical</div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>Cloud modernization</div>
+          <p class="focus-desc">Migrating on-prem estates to AWS, Azure, and GCP with zero-loss continuity. Multi-cloud disaster recovery as a default, not an afterthought.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>Automation &amp; IaC</div>
+          <p class="focus-desc">Terraform, Ansible, and CI/CD pipelines that eliminate toil, enforce consistency, and let small teams punch well above their weight.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>Observability</div>
+          <p class="focus-desc">Prometheus, Grafana, Graylog, Zabbix, and PRTG — real-time visibility across on-prem and cloud, built to catch problems before users do.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name"><span class="dot"></span>Workplace &amp; MDM</div>
+          <p class="focus-desc">Google Workspace, JumpCloud, JAMF — cross-platform MDM for macOS, Windows, and Linux. Seamless onboarding, tight access control at any headcount.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="fade d6">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-label">Technical skills &amp; training</span>
+      <div></div>
+    </div>
+    <div class="tech-grid">
+      <div>
+        <div class="tech-cluster-title">Cloud &amp; IaC</div>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS</span><span class="tech-tag">Azure</span>
+          <span class="tech-tag">GCP</span><span class="tech-tag">Terraform</span>
+          <span class="tech-tag">Ansible</span><span class="tech-tag">Docker</span>
+          <span class="tech-tag">Kubernetes</span>
+        </div>
+      </div>
+      <div>
+        <div class="tech-cluster-title">Identity &amp; Security</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Okta</span><span class="tech-tag">JumpCloud</span>
+          <span class="tech-tag">FortiGate</span><span class="tech-tag">Sophos</span>
+          <span class="tech-tag">SonicWALL</span><span class="tech-tag">Zero Trust</span>
+          <span class="tech-tag">Zscaler</span>
+        </div>
+      </div>
+      <div>
+        <div class="tech-cluster-title">Virtualization</div>
+        <div class="tech-tags">
+          <span class="tech-tag">VMware</span><span class="tech-tag">Citrix</span>
+          <span class="tech-tag">Hyper-V</span><span class="tech-tag">Nutanix</span>
+          <span class="tech-tag">VDI</span><span class="tech-tag">XenServer</span>
+        </div>
+      </div>
+      <div>
+        <div class="tech-cluster-title">Observability</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Prometheus</span><span class="tech-tag">Grafana</span>
+          <span class="tech-tag">Graylog</span><span class="tech-tag">Zabbix</span>
+          <span class="tech-tag">PRTG</span><span class="tech-tag">Nagios</span>
+        </div>
+      </div>
+      <div>
+        <div class="tech-cluster-title">Workplace &amp; MDM</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Google Workspace</span>
+          <span class="tech-tag">Microsoft 365</span><span class="tech-tag">JAMF</span>
+          <span class="tech-tag">SCCM</span>
+          <span class="tech-tag">Omnissa MDM</span>
+        </div>
+      </div>
+      <div>
+        <div class="tech-cluster-title">Networking &amp; OS</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Cisco</span><span class="tech-tag">Active Directory</span>
+          <span class="tech-tag">Linux</span><span class="tech-tag">Windows Server</span>
+          <span class="tech-tag">PowerShell</span><span class="tech-tag">Bash / Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES & CONTACT -->
+<section id="contact" class="fade d7">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-label">Languages</span>
+      <div class="lang-row">
+        <div><div class="lang-name">Portuguese</div><div class="lang-level">Native</div></div>
+        <div><div class="lang-name">English</div><div class="lang-level">Fluent</div></div>
+        <div><div class="lang-name">Spanish</div><div class="lang-level">Basic</div></div>
+        <div><div class="lang-name">German</div><div class="lang-level">Basic</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© Valdir Junior — IT Infrastructure &amp; Engineering Leadership</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/valdirjunior011" target="_blank">LinkedIn</a>
+      <a href="mailto:contact@valdirjunior.win">Email</a>
+    </div>
+  </div>
+</footer>
+
 </div>
 </body>
 </html>
